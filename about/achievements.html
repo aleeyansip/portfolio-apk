@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedap Cravings Pastry Chef | Achievements & Sales</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div id="nav-container"></div>
+
+    <main class="page-content">
+        <h1>Financial Achievements</h1>
+        <p>A comprehensive breakdown of our group's overall performance and individual member contributions.</p>
+
+        <section class="overall-chart-section">
+            <div class="chart-card large-chart">
+                <h2>Overall Group Performance</h2>
+                <p>Total Sales: <strong>RM 1,779.40</strong></p>
+                <div class="canvas-container">
+                    <canvas id="overallChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-summary-box">
+            <h2>Cake Project: Sales and Profit Report</h2>
+            <p>Our business has been actively managed and operated by 7 group members. During this selling period, we diversified our product offerings by introducing two main items: our signature <strong>Matcha Cake (RM 8.00)</strong> and our premium <strong>Chocolate Cake (RM 9.00)</strong>.</p>
+            
+            <p>Overall, the business successfully generated a total gross sales revenue of <strong>RM 1,779.40</strong>. After deducting total expenses (material costs) of RM 560.00, our business achieved a combined net profit and labor return of <strong>RM 1,219.40</strong>, which is securely deposited in our bank account.</p>
+            
+            <p>To ensure this report accurately reflects individual effort and commitment, dividends and payouts were not split equally. Instead, they were calculated dynamically based on the specific number of units sold by each member:</p>
+            
+            <ul>
+                <li><strong>Member 1</strong> recorded the highest sales performance, securing a personal total take-home return of <strong>RM 219.20</strong>.</li>
+                <li>The sales performance and financial returns of the remaining group members varied according to their individual cake units sold (as detailed in the attached financial charts).</li>
+                <li>Crucially, our primary group objective was met with outstanding success: <strong>not a single member received a personal return below RM 150.00</strong>, with the minimum individual payout recorded at exactly RM 150.00.</li>
+            </ul>
+
+            <p>This strategic alignment demonstrates that our cost structure for both products is highly sustainable, providing a fair and motivating return to all 7 team members based directly on their personal sales contributions.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <h2>Individual Member Breakdown</h2>
+        <section class="member-charts-grid">
+            <div class="chart-card">
+                <h3>Member 1</h3><p>Total Sales: RM 320.00</p><canvas id="member1Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 2</h3><p>Total Sales: RM 286.00</p><canvas id="member2Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 3</h3><p>Total Sales: RM 261.00</p><canvas id="member3Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 4</h3><p>Total Sales: RM 236.00</p><canvas id="member4Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 5</h3><p>Total Sales: RM 219.00</p><canvas id="member5Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 6</h3><p>Total Sales: RM 220.00</p><canvas id="member6Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Member 7</h3><p>Total Sales: RM 237.40</p><canvas id="member7Chart"></canvas>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <h2>Sales Evidence & Weekly Reports</h2>
+        <p>Documenting our consistent sales progress from Week 6 up to our Expo Day in Week 10.</p>
+        
+        <section class="evidence-grid">
+            
+            <div class="evidence-card">
+                <h3>Week 6</h3>
+                <img src="../assets/images/week6-placeholder.jpg" alt="Week 6 Evidence" class="evidence-img">
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 6 sales. E.g., "Launched our first batch of Matcha cakes. Initial sales were primarily to friends and classmates."]</p>
+            </div>
+
+            <div class="evidence-card">
+                <h3>Week 7</h3>
+                <img src="../assets/images/week7-placeholder.jpg" alt="Week 7 Evidence" class="evidence-img">
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 7. E.g., "Introduced the Chocolate Cake. Sales doubled as we began promoting on WhatsApp statuses."]</p>
+            </div>
+
+            <div class="evidence-card">
+                <h3>Week 8</h3>
+                <img src="../assets/images/week8-placeholder.jpg" alt="Week 8 Evidence" class="evidence-img">
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 8. E.g., "Consistent repeat orders from previous customers. Began preparing for the upcoming Expo."]</p>
+            </div>
+
+            <div class="evidence-card">
+                <h3>Week 9</h3>
+                <img src="../assets/images/week9-placeholder.jpg" alt="Week 9 Evidence" class="evidence-img">
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 9. E.g., "Final marketing push before the Expo. Secured bulk pre-orders from university staff."]</p>
+            </div>
+
+            <div class="evidence-card">
+                <h3>Week 10 (Expo Day)</h3>
+                <img src="../assets/images/week10-placeholder.jpg" alt="Week 10 Evidence" class="evidence-img">
+                <p class="evidence-report">[Report Placeholder: Describe Expo Day. E.g., "Set up our physical booth. Successfully sold out our entire inventory by 2:00 PM!"]</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>loadNav('../');</script>
+
+    <script>
+        const colorEarned = '#78a850'; 
+        const colorExpense = '#5b3e31'; 
+        const chartColors = [colorEarned, colorExpense];
+
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { family: "'Poppins', sans-serif" } } },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            let value = context.raw;
+                            let total = context.chart._metasets[context.datasetIndex].total;
+                            let percentage = ((value / total) * 100).toFixed(1) + '%';
+                            return `${label}: RM ${value.toFixed(2)} (${percentage})`;
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('overallChart'), {
+            type: 'pie',
+            data: { labels: ['Take-Home Earned', 'Expenses Share'], datasets: [{ data: [1219.40, 560.00], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
+            options: commonOptions
+        });
+
+        const memberData = [
+            { id: 'member1Chart', earned: 219.20, expense: 100.80 },
+            { id: 'member2Chart', earned: 196.00, expense: 90.00 },
+            { id: 'member3Chart', earned: 178.80, expense: 82.20 },
+            { id: 'member4Chart', earned: 161.60, expense: 74.40 },
+            { id: 'member5Chart', earned: 150.00, expense: 69.00 },
+            { id: 'member6Chart', earned: 150.80, expense: 69.20 },
+            { id: 'member7Chart', earned: 163.00, expense: 74.40 }
+        ];
+
+        memberData.forEach(member => {
+            new Chart(document.getElementById(member.id), {
+                type: 'pie',
+                data: { labels: ['Take-Home Earned', 'Expenses Share'], datasets: [{ data: [member.earned, member.expense], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
+                options: commonOptions
+            });
+        });
+    </script>
+</body>
+</html>

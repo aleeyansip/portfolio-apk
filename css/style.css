@@ -1,0 +1,985 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* --- Global Reset & Variables --- */
+:root {
+    --matcha-dark: #2d5a27;
+    --matcha-main: #78a850;
+    --cream: #fffdf5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* NEW: Applying the Modern, Clean Font */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--cream);
+}
+
+/* --- Navigation Bar (Laptop View) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes brand left, links right */
+    align-items: center;
+    background-color: var(--matcha-dark);
+    padding: 15px 30px;
+    color: white;
+}
+
+/* --- NEW: Brand & Logo Alignment --- */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo and text */
+}
+
+.nav-logo {
+    max-height: 40px; /* Forces irregular logos to fit without stretching */
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hide Dropdowns by Default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: var(--matcha-dark);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown when mouse hovers over it on laptop */
+}
+
+/* --- Hamburger Icon (Hidden on Laptop) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* --- Mobile View (Triggers when screen is smaller than 768px) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show the 3 bars on phones */
+    }
+
+    .nav-links {
+        display: none; /* Hide the long list on phones */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--matcha-dark);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    /* This class is added by our JavaScript toggleMenu() function */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .dropdown:hover .dropdown-content {
+        position: relative; /* Stacks the sub-menus vertically on phones */
+    }
+}
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--matcha-dark);
+}
+
+/* --- Sub-Page Layouts --- */
+.page-content {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content */
+    text-align: center;
+}
+
+/* --- Responsive Grid for Team and Products --- */
+.team-grid {
+    display: grid;
+    /* This creates responsive columns. They will be at least 250px wide, 
+       and expand to fill available space. It handles mobile perfectly! */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px); /* Cool hover effect */
+}
+
+.team-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Keeps images looking nice without squishing */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--matcha-main);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--matcha-dark);
+}
+
+/* --- Personal Profile Template Layout --- */
+.profile-container {
+    display: flex;
+    flex-wrap: wrap; /* CRITICAL: This allows it to stack on mobile phones! */
+    gap: 40px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Soft, modern shadow */
+    text-align: left;
+}
+
+.profile-img {
+    flex: 1 1 300px; /* Tells the image to take up space, minimum 300px wide */
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* Prevents the photo from looking squished */
+    border-radius: 8px;
+}
+
+.profile-details {
+    flex: 2 1 400px; /* Tells the text to take up double the space of the image */
+}
+
+/* Typography specifics for the profile */
+.profile-details h1 {
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.role-title {
+    color: var(--matcha-main);
+    font-weight: 400;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.profile-details h3 {
+    color: var(--matcha-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--matcha-light);
+    padding-bottom: 5px;
+}
+
+.profile-details ul {
+    margin-left: 20px; /* Indents the bullet points nicely */
+    margin-bottom: 20px;
+}
+
+.profile-details p {
+    color: #444; /* Slightly softer text for reading long reflections */
+}
+
+/* =========================================
+   4. FINANCIAL STATEMENT TABLES
+   ========================================= */
+.table-container {
+    margin-top: 20px;
+    margin-bottom: 40px; /* Gives space between multiple tables */
+    overflow-x: auto; /* Allows horizontal scrolling on small phones */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.finance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    min-width: 600px; /* Prevents text from squishing on phones */
+}
+
+.finance-table th, 
+.finance-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.finance-table th {
+    background-color: var(--matcha-dark);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.finance-table tbody tr:hover {
+    background-color: var(--matcha-light);
+    transition: background-color 0.3s ease;
+}
+
+.finance-table tbody tr:last-child {
+    border-bottom: 2px solid var(--matcha-dark);
+}
+
+/* =========================================
+   6. OUR PRODUCTS PAGE
+   ========================================= */
+
+/* Intro Section */
+.intro-section {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.tagline {
+    color: var(--matcha-main);
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    overflow: hidden; /* Keeps the image corners rounded */
+    flex: 1 1 350px; /* Responsive sizing */
+    max-width: 500px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Lifts the card when hovered */
+}
+
+.product-img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 30px;
+}
+
+.product-info h2 {
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.flavor-tag {
+    color: var(--matcha-main);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.product-info p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Call to Action Section */
+.cta-section {
+    background-color: var(--matcha-light);
+    padding: 50px 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.cta-section h2 {
+    color: var(--matcha-dark);
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.order-btn {
+    display: inline-block;
+    background-color: var(--matcha-main);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px; /* Pill shape */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.order-btn:hover {
+    background-color: var(--matcha-dark);
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+/* =========================================
+   7. VISION, MISSION & OBJECTIVES PAGE
+   ========================================= */
+
+/* Centered Brand Display */
+.brand-display {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-in-out; /* Adds a smooth fade-in effect when the page loads */
+}
+
+.center-logo {
+    max-width: 150px; /* Big enough to be prominent, small enough to be neat */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.company-name {
+    color: var(--matcha-dark);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* VMO Grid Layout */
+.vmo-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 30px;
+    justify-content: center;
+}
+
+.vmo-card {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1 1 300px; /* Cards will be at least 300px wide, expanding to share space */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.vmo-card:hover {
+    transform: translateY(-8px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.vmo-card h2 {
+    color: var(--matcha-main);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Adds a cool little underline beneath the card headings */
+.vmo-card h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: var(--matcha-light);
+    bottom: -8px;
+    left: 25%;
+}
+
+.vmo-card p {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Specific styling for the Objectives list */
+.objective-list {
+    text-align: left; /* Lists look better left-aligned */
+    color: #555;
+    line-height: 1.8;
+    margin-left: 20px; /* Indents the bullets */
+}
+
+.objective-list li {
+    margin-bottom: 10px;
+}
+
+/* Simple Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   8. MARKETING CHANNELS PAGE (SLIDERS)
+   ========================================= */
+
+.marketing-platform {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.platform-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.platform-header h2 {
+    color: var(--matcha-dark);
+    font-size: 1.8rem;
+}
+
+/* Social Media Buttons */
+.social-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Custom platform colors for that professional touch */
+.ig-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.fb-btn { background-color: #1877F2; }
+.tt-btn { background-color: #000000; }
+
+/* Horizontal Slider Container */
+.slider-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Makes the images 'snap' into place */
+    padding-bottom: 15px; /* Room for the scrollbar */
+}
+
+/* Styling the Images inside the slider */
+.slide-img {
+    flex: 0 0 85%; /* Shows 85% of an image so the user knows they can swipe */
+    max-width: 300px; /* Prevents screenshots from being too massive on laptops */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    scroll-snap-align: center; /* Snaps the image to the center of the box */
+}
+
+/* Sleek Custom Scrollbar for the sliders */
+.slider-container::-webkit-scrollbar {
+    height: 8px;
+}
+.slider-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+.slider-container::-webkit-scrollbar-thumb {
+    background: var(--matcha-main); 
+    border-radius: 4px;
+}
+.slider-container::-webkit-scrollbar-thumb:hover {
+    background: var(--matcha-dark); 
+}
+
+/* =========================================
+   9. PROBLEM SOLVING PAGE
+   ========================================= */
+
+.ps-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.ps-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1 1 400px; /* Responsive width */
+    max-width: 600px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.ps-card:hover {
+    transform: translateY(-5px);
+}
+
+/* The Problem Area (Red/Orange accent) */
+.problem-box {
+    background-color: #fff8f8; /* Very soft red/pink background */
+    border-left: 5px solid #ff6b6b; /* Red warning border */
+    padding: 30px;
+}
+
+.problem-box h3 {
+    color: #d63031;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.problem-box p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* The Solution Area (Matcha Green accent) */
+.solution-box {
+    background-color: var(--matcha-light);
+    border-left: 5px solid var(--matcha-main);
+    padding: 30px;
+}
+
+.solution-box h3 {
+    color: var(--matcha-dark);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.solution-box p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   10. REFLECTION PAGE
+   ========================================= */
+
+/* Group Photos Section */
+.group-photos-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.group-img {
+    flex: 1 1 400px;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 3px solid white; /* Adds a nice photo-frame border */
+}
+
+/* Reflection Cards Grid */
+.reflection-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.reflection-card {
+    background-color: white;
+    padding: 30px 30px 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1 1 300px;
+    text-align: left;
+    position: relative;
+    border-top: 4px solid var(--matcha-main);
+}
+
+.quote-mark {
+    color: var(--matcha-light);
+    font-size: 4rem;
+    line-height: 0;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 1; /* Puts the quote behind the text */
+}
+
+.reflection-card h3 {
+    color: var(--matcha-dark);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+    padding-left: 15px; /* Moves text away from the giant quote mark */
+}
+
+.reflection-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    font-style: italic; /* Makes it look like a reflection/quote */
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   11. CUSTOMER REVIEWS PAGE
+   ========================================= */
+
+.review-grid {
+    display: grid;
+    /* Automatically fits as many 250px wide images as possible per row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    justify-items: center; /* Centers the images inside their grid columns */
+}
+
+.review-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the images look neat without stretching */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   12. ACHIEVEMENTS & CHARTS PAGE
+   ========================================= */
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 50px auto;
+    width: 80%;
+}
+
+.chart-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+}
+
+.chart-card h2, .chart-card h3 {
+    color: var(--matcha-dark);
+    margin-bottom: 5px;
+}
+
+.chart-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Overall Chart Sizing */
+.overall-chart-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.large-chart {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* The canvas container forces the chart to obey dimensions */
+.canvas-container {
+    position: relative;
+    height: 300px; 
+    width: 100%;
+}
+
+/* Member Charts Grid */
+.member-charts-grid {
+    display: grid;
+    /* Fits as many 280px cards as possible per row */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.member-charts-grid .chart-card canvas {
+    max-height: 250px; /* Keeps the smaller pie charts from getting too big */
+}
+
+/* =========================================
+   13. ACHIEVEMENTS PAGE (REPORT & EVIDENCE)
+   ========================================= */
+
+/* Formal Report Summary Box */
+.report-summary-box {
+    background-color: var(--matcha-light);
+    border-left: 6px solid var(--matcha-main);
+    padding: 40px;
+    margin: 40px auto 0 auto;
+    border-radius: 8px;
+    max-width: 900px; /* Keeps the text from getting too wide to read */
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.report-summary-box h2 {
+    color: var(--matcha-dark);
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.report-summary-box p {
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.report-summary-box ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.report-summary-box li {
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* Weekly Evidence Grid */
+.evidence-grid {
+    display: grid;
+    /* This creates responsive columns. It will naturally show all 5 on a big screen, 
+       and stack them neatly on a small phone screen. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    justify-items: center;
+}
+
+.evidence-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+    width: 100%;
+}
+
+.evidence-card h3 {
+    color: var(--matcha-dark);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.evidence-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Prevents screenshots from being cut off */
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 15px;
+}
+
+.evidence-report {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--matcha-main);
+}
+
+/* =========================================
+   14. CONTACT PAGE
+   ========================================= */
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.contact-info-card, .contact-form-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    flex: 1 1 400px; /* Forces them to sit side-by-side on laptop */
+}
+
+/* Info Column Styling */
+.contact-info-card h2 {
+    color: var(--matcha-dark);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.info-block {
+    margin-bottom: 25px;
+}
+
+.info-block h4 {
+    color: var(--matcha-main);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.info-block p {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Google Map Container */
+.map-container iframe {
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Form Column Styling */
+.form-intro {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.custom-form input, 
+.custom-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom-form textarea {
+    resize: vertical; /* Allows the user to drag the box taller if needed */
+    min-height: 120px;
+}
+
+/* Cool glowing effect when clicking on an input box */
+.custom-form input:focus, 
+.custom-form textarea:focus {
+    border-color: var(--matcha-main);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(120, 168, 80, 0.2);
+    background-color: white;
+}
+
+.submit-btn {
+    background-color: var(--matcha-main);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--matcha-dark);
+    transform: translateY(-3px);
+}
