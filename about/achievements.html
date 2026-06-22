@@ -3,161 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Achievements & Sales</title>
+    <title>Achievements & Sales - Sedap Cravings Pastry Chef</title>
     
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js Library for Data Visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <h1>Financial Achievements BELUM UPDATE LATEST YA, NTAR DIBUAT</h1>
-        <p>A comprehensive breakdown of our group's overall performance and individual member contributions.</p>
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="marketing.html">Marketing Channels</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="reviews.html">Customer Review</a></li>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="problem-solving.html">Problem Solving</a></li>
+                    <li><a href="reflection.html">Reflection</a></li>
+                </ul>
+            </li>
 
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Director</a></li>
+                    <li><a href="../personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="../personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="../personal/finance1.html">Finance 1</a></li>
+                    <li><a href="../personal/finance2.html">Finance 2</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="../personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Financial Achievements & Sales</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">A comprehensive breakdown of our group's performance and individual contributions.</p>
+    </header>
+
+    <!-- ==========================================
+         4. REPORT SUMMARY
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1100px; margin: 0 auto;">
+        
+        <section class="report-summary-box">
+            <h2>Cake Project: Sales and Profit Report</h2>
+            <p>Our business has been actively managed and operated by 7 dedicated group members. During this selling period, we diversified our product offerings by introducing two main items: our signature <strong>Matcha Moist Cake (RM 8.00)</strong> and our premium <strong>Chocolate Moist Cake (RM 9.00)</strong>.</p>
+            
+            <div class="highlight-stats">
+                <div class="stat">
+                    <h3>RM 1,779.40</h3>
+                    <p>Total Gross Sales</p>
+                </div>
+                <div class="stat">
+                    <h3>RM 520.00</h3>
+                    <p>Business Expenses</p>
+                </div>
+                <div class="stat">
+                    <h3 style="color: var(--matcha-green);">RM 1,259.40</h3>
+                    <p>Net Bank Balance</p>
+                </div>
+            </div>
+
+            <p>Overall, the business successfully generated a total gross sales revenue of <strong>RM 1,779.40</strong>. After deducting business material expenses of <strong>RM 520.00</strong> (with an additional RM 40.00 covered out-of-pocket by the team at RM 5.71 per person), our business achieved a combined net bank balance of <strong>RM 1,259.40</strong>.</p>
+            
+            <p>To ensure this report accurately reflects individual effort, payouts were calculated dynamically based on the specific number of units sold by each member:</p>
+            
+            <ul class="custom-bullet-list">
+                <li><i class="fas fa-trophy"></i> <strong>Ihjaz</strong> recorded the highest sales performance, securing a personal total take-home return of <strong>RM 224.91</strong>.</li>
+                <li><i class="fas fa-chart-line"></i> The financial returns of the remaining group members varied according to their individual cake units sold, as detailed in the charts below.</li>
+                <li><i class="fas fa-check-circle"></i> Crucially, our primary group objective was met with outstanding success: <strong>not a single member received a personal return below RM 150.00</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- ==========================================
+             5. CHARTS SECTION
+             ========================================== -->
+        <h2 class="section-title">Overall Group Performance</h2>
         <section class="overall-chart-section">
             <div class="chart-card large-chart">
-                <h2>Overall Group Performance</h2>
-                <p>Total Sales: <strong>RM 1,779.40</strong></p>
                 <div class="canvas-container">
                     <canvas id="overallChart"></canvas>
                 </div>
             </div>
         </section>
 
-        <section class="report-summary-box">
-            <h2>Cake Project: Sales and Profit Report</h2>
-            <p>Our business has been actively managed and operated by 7 group members. During this selling period, we diversified our product offerings by introducing two main items: our signature <strong>Matcha Cake (RM 8.00)</strong> and our premium <strong>Chocolate Cake (RM 9.00)</strong>.</p>
-            
-            <p>Overall, the business successfully generated a total gross sales revenue of <strong>RM 1,779.40</strong>. After deducting total expenses (material costs) of RM 560.00, our business achieved a combined net profit and labor return of <strong>RM 1,219.40</strong>, which is securely deposited in our bank account.</p>
-            
-            <p>To ensure this report accurately reflects individual effort and commitment, dividends and payouts were not split equally. Instead, they were calculated dynamically based on the specific number of units sold by each member:</p>
-            
-            <ul>
-                <li><strong>Member 1</strong> recorded the highest sales performance, securing a personal total take-home return of <strong>RM 219.20</strong>.</li>
-                <li>The sales performance and financial returns of the remaining group members varied according to their individual cake units sold (as detailed in the attached financial charts).</li>
-                <li>Crucially, our primary group objective was met with outstanding success: <strong>not a single member received a personal return below RM 150.00</strong>, with the minimum individual payout recorded at exactly RM 150.00.</li>
-            </ul>
-
-            <p>This strategic alignment demonstrates that our cost structure for both products is highly sustainable, providing a fair and motivating return to all 7 team members based directly on their personal sales contributions.</p>
-        </section>
-
-        <hr class="section-divider">
-
-        <h2>Individual Member Breakdown</h2>
+        <h2 class="section-title">Individual Member Breakdown</h2>
         <section class="member-charts-grid">
             <div class="chart-card">
-                <h3>Member 1</h3><p>Total Sales: RM 320.00</p><canvas id="member1Chart"></canvas>
+                <h3>Member 1</h3><p>Sales: RM 320.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member1Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 2</h3><p>Total Sales: RM 286.00</p><canvas id="member2Chart"></canvas>
+                <h3>Member 2</h3><p>Sales: RM 286.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member2Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 3</h3><p>Total Sales: RM 261.00</p><canvas id="member3Chart"></canvas>
+                <h3>Member 3</h3><p>Sales: RM 261.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member3Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 4</h3><p>Total Sales: RM 236.00</p><canvas id="member4Chart"></canvas>
+                <h3>Member 4</h3><p>Sales: RM 236.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member4Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 5</h3><p>Total Sales: RM 219.00</p><canvas id="member5Chart"></canvas>
+                <h3>Member 5</h3><p>Sales: RM 219.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member5Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 6</h3><p>Total Sales: RM 220.00</p><canvas id="member6Chart"></canvas>
+                <h3>Member 6</h3><p>Sales: RM 220.00</p>
+                <div class="member-canvas-container">
+                    <canvas id="member6Chart"></canvas>
+                </div>
             </div>
             <div class="chart-card">
-                <h3>Member 7</h3><p>Total Sales: RM 237.40</p><canvas id="member7Chart"></canvas>
+                <h3>Member 7</h3><p>Sales: RM 237.40</p>
+                <div class="member-canvas-container">
+                    <canvas id="member7Chart"></canvas>
+                </div>
             </div>
         </section>
-
-        <hr class="section-divider">
-
-        <h2>Sales Evidence & Weekly Reports</h2>
-        <p>Documenting our consistent sales progress from Week 6 up to our Expo Day in Week 10.</p>
+        <!-- ==========================================
+             6. SALES EVIDENCE SECTION
+             ========================================== -->
+        <h2 class="section-title">Sales Evidence & Weekly Reports</h2>
+        <p style="margin-bottom: 30px;">Documenting our consistent sales progress from Week 6 up to our Expo Day in Week 10.</p>
         
         <section class="evidence-grid">
-            
             <div class="evidence-card">
-                <h3>Week 6</h3>
+                <div class="evidence-header"><h3>Week 6</h3></div>
                 <img src="../assets/images/week6-placeholder.jpg" alt="Week 6 Evidence" class="evidence-img">
-                <p class="evidence-report">[Report Placeholder: Briefly describe Week 6 sales. E.g., "Launched our first batch of Matcha cakes. Initial sales were primarily to friends and classmates."]</p>
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 6 sales.]</p>
             </div>
-
             <div class="evidence-card">
-                <h3>Week 7</h3>
+                <div class="evidence-header"><h3>Week 7</h3></div>
                 <img src="../assets/images/week7-placeholder.jpg" alt="Week 7 Evidence" class="evidence-img">
-                <p class="evidence-report">[Report Placeholder: Briefly describe Week 7. E.g., "Introduced the Chocolate Cake. Sales doubled as we began promoting on WhatsApp statuses."]</p>
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 7 sales.]</p>
             </div>
-
             <div class="evidence-card">
-                <h3>Week 8</h3>
+                <div class="evidence-header"><h3>Week 8</h3></div>
                 <img src="../assets/images/week8-placeholder.jpg" alt="Week 8 Evidence" class="evidence-img">
-                <p class="evidence-report">[Report Placeholder: Briefly describe Week 8. E.g., "Consistent repeat orders from previous customers. Began preparing for the upcoming Expo."]</p>
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 8 sales.]</p>
             </div>
-
             <div class="evidence-card">
-                <h3>Week 9</h3>
+                <div class="evidence-header"><h3>Week 9</h3></div>
                 <img src="../assets/images/week9-placeholder.jpg" alt="Week 9 Evidence" class="evidence-img">
-                <p class="evidence-report">[Report Placeholder: Briefly describe Week 9. E.g., "Final marketing push before the Expo. Secured bulk pre-orders from university staff."]</p>
+                <p class="evidence-report">[Report Placeholder: Briefly describe Week 9 sales.]</p>
             </div>
-
             <div class="evidence-card">
-                <h3>Week 10 (Expo Day)</h3>
+                <div class="evidence-header" style="background-color: var(--chocolate-brown);"><h3>Week 10 (Expo)</h3></div>
                 <img src="../assets/images/week10-placeholder.jpg" alt="Week 10 Evidence" class="evidence-img">
-                <p class="evidence-report">[Report Placeholder: Describe Expo Day. E.g., "Set up our physical booth. Successfully sold out our entire inventory by 2:00 PM!"]</p>
+                <p class="evidence-report">[Report Placeholder: Describe Expo Day successes!]</p>
             </div>
-
         </section>
 
     </main>
 
+    <!-- ==========================================
+         7. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="team.html">Meet the Team</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings Pastry Chef</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings Pastry Chef. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our JavaScript -->
     <script src="../js/script.js"></script>
-    <script>loadNav('../');</script>
 
+    <!-- Chart Logic with Recalculated Values -->
     <script>
-        const colorEarned = '#78a850'; 
-        const colorExpense = '#5b3e31'; 
+        const colorEarned = '#8A9A5B'; // Matcha Green
+        const colorExpense = '#4E342E'; // Chocolate Brown
         const chartColors = [colorEarned, colorExpense];
-
         const commonOptions = {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'bottom', labels: { font: { family: "'Poppins', sans-serif" } } },
+                legend: { position: 'bottom' },
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            let label = context.label || '';
                             let value = context.raw;
                             let total = context.chart._metasets[context.datasetIndex].total;
                             let percentage = ((value / total) * 100).toFixed(1) + '%';
-                            return `${label}: RM ${value.toFixed(2)} (${percentage})`;
+                            return `RM ${value.toFixed(2)} (${percentage})`;
                         }
                     }
                 }
             }
         };
 
+        // Overall Chart
         new Chart(document.getElementById('overallChart'), {
             type: 'pie',
-            data: { labels: ['Take-Home Earned', 'Expenses Share'], datasets: [{ data: [1219.40, 560.00], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
+            data: { labels: ['Take-Home Earned', 'Expenses Share'], datasets: [{ data: [1259.40, 520.00], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
             options: commonOptions
         });
 
+        // Recalculated Individual Member Data (Adjusted for RM5.71 out of pocket)
         const memberData = [
-            { id: 'member1Chart', earned: 219.20, expense: 100.80 },
-            { id: 'member2Chart', earned: 196.00, expense: 90.00 },
-            { id: 'member3Chart', earned: 178.80, expense: 82.20 },
-            { id: 'member4Chart', earned: 161.60, expense: 74.40 },
-            { id: 'member5Chart', earned: 150.00, expense: 69.00 },
-            { id: 'member6Chart', earned: 150.80, expense: 69.20 },
-            { id: 'member7Chart', earned: 163.00, expense: 74.40 }
+            { id: 'member1Chart', earned: 224.91, expense: 95.09 },
+            { id: 'member2Chart', earned: 201.71, expense: 84.29 },
+            { id: 'member3Chart', earned: 184.51, expense: 76.49 },
+            { id: 'member4Chart', earned: 167.31, expense: 68.69 },
+            { id: 'member5Chart', earned: 155.71, expense: 63.29 },
+            { id: 'member6Chart', earned: 156.51, expense: 63.49 },
+            { id: 'member7Chart', earned: 168.74, expense: 68.66 } // Adjusted to perfectly sum to total
         ];
 
         memberData.forEach(member => {
             new Chart(document.getElementById(member.id), {
                 type: 'pie',
-                data: { labels: ['Take-Home Earned', 'Expenses Share'], datasets: [{ data: [member.earned, member.expense], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
+                data: { labels: ['Earned', 'Expense'], datasets: [{ data: [member.earned, member.expense], backgroundColor: chartColors, borderWidth: 2, borderColor: '#ffffff' }] },
                 options: commonOptions
             });
         });

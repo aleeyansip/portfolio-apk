@@ -3,54 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Our Products</title>
+    <title>Our Products - Sedap Cravings Pastry Chef</title>
     
+    <!-- Notice the ../ which tells the file to look outside the 'about' folder! -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        
-        <section class="intro-section">
-            <h1 class="tagline">"Professionalism in every slice. KENA EDIT JUGA NI ALEEYA."</h1>
-            <p class="intro-text">Welcome to Sedap Cravings Pastry Chef. We specialize in crafting premium, mouth-watering moist cakes using only the finest ingredients. Whether you are craving the earthy richness of matcha or the classic comfort of chocolate, our pastries are baked to perfection to satisfy your sweet tooth.</p>
-        </section>
-
-        <section class="product-grid">
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
             
-            <div class="product-card">
-                <img src="../assets/images/matcha-cake-placeholder.jpg" alt="Matcha Moist Cake" class="product-img">
-                <div class="product-info">
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="marketing.html">Marketing Channels</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="reviews.html">Customer Review</a></li>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="problem-solving.html">Problem Solving</a></li>
+                    <li><a href="reflection.html">Reflection</a></li>
+                </ul>
+            </li>
+
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Director</a></li>
+                    <li><a href="../personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="../personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="../personal/finance1.html">Finance 1</a></li>
+                    <li><a href="../personal/finance2.html">Finance 2</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="../personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Our Products</h1>
+        <!-- Updated tagline -->
+        <p style="font-size: 1.2rem; color: #d1d5db; font-style: italic;">"Pure perfection in every slice."</p>
+    </header>
+
+    <!-- ==========================================
+         4. INTRO SECTION
+         ========================================== -->
+    <section class="products-intro" style="padding: 60px 20px; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        <p>Welcome to Sedap Cravings Pastry Chef. We specialize in crafting premium, mouth-watering moist cakes using only the finest ingredients. Whether you are craving the earthy richness of matcha or the classic comfort of chocolate, our pastries are baked to perfection to satisfy your sweet tooth.</p>
+    </section>
+    <!-- ==========================================
+         5. PREMIUM PRODUCT SHOWCASE (Alternating Layout)
+         ========================================== -->
+    <main class="product-showcase">
+        
+        <!-- PRODUCT 1: MATCHA -->
+        <section class="showcase-item matcha-item">
+            <div class="showcase-container">
+                <div class="showcase-image">
+                    <!-- Ensure your actual photo is in assets/images/ and named matcha-moist-1.jpg -->
+                    <img src="../assets/images/matcha-moist-1.jpg" alt="Matcha Moist Cake">
+                </div>
+                <div class="showcase-text">
+                    <span class="flavor-tag">Premium Flavor</span>
                     <h2>Matcha Moist Cake</h2>
-                    <h3 class="flavor-tag">with Matcha Ganache</h3>
+                    <h3>with Matcha Ganache</h3>
                     <p>Our signature creation. A perfectly balanced, soft and fluffy matcha-infused cake, generously topped with a rich, velvety matcha ganache. A true delight for green tea lovers.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="product-card">
-                <img src="../assets/images/chocolate-cake-placeholder.jpg" alt="Chocolate Moist Cake" class="product-img">
-                <div class="product-info">
+        <!-- PRODUCT 2: CHOCOLATE (Alternated image/text layout in CSS) -->
+        <section class="showcase-item chocolate-item">
+            <div class="showcase-container">
+                <div class="showcase-image">
+                    <!-- Ensure your actual photo is in assets/images/ and named chocolate-moist-1.jpg -->
+                    <img src="../assets/images/chocolate-moist-1.jpg" alt="Chocolate Moist Cake">
+                </div>
+                <div class="showcase-text">
+                    <span class="flavor-tag">Classic Comfort</span>
                     <h2>Chocolate Moist Cake</h2>
-                    <h3 class="flavor-tag">with Chocolate Ganache</h3>
+                    <h3>with Chocolate Ganache</h3>
                     <p>Decadent and deeply satisfying. This incredibly moist chocolate cake is draped in a thick, luxurious chocolate ganache that melts in your mouth with every bite.</p>
                 </div>
             </div>
-
-        </section>
-
-        <section class="cta-section">
-            <h2>Ready to Taste the Perfection?</h2>
-            <p>Head over to our official ordering page to place your order today!</p>
-            <a href="https://aleeyansip.github.io/sedapcravingspastrychef/" target="_blank" class="order-btn">Order Now</a>
         </section>
 
     </main>
 
+    <!-- ==========================================
+         6. CTA SECTION
+         ========================================== -->
+    <section class="order-cta" style="padding: 80px 20px; text-align: center; background-color: #f9f9f9; border-top: 1px solid #eee;">
+        <h2 style="font-size: 2.2rem; color: var(--ums-dark); margin-bottom: 15px;">Ready to Taste the Perfection?</h2>
+        <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Head over to our official ordering page to place your order today!</p>
+        <a href="https://aleeyansip.github.io/sedapcravingspastrychef/" target="_blank" class="order-btn">Order Now <i class="fas fa-external-link-alt"></i></a>
+    </section>
+
+    <!-- ==========================================
+         7. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="team.html">Meet the Team</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings Pastry Chef</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings Pastry Chef. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our custom JavaScript -->
     <script src="../js/script.js"></script>
-    <script>
-        loadNav('../'); 
-    </script>
 </body>
 </html>

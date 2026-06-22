@@ -2,29 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This meta tag is CRUCIAL for making the site responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Home</title>
+    <title>Sedap Cravings Pastry Chef</title>
     
-    <!-- Link to your CSS file -->
+    <!-- Link to our custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- FontAwesome for the Hamburger and Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- The JavaScript will inject the navigation menu right here -->
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR & HAMBURGER MENU
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <!-- Main Content Area -->
-    <main class="hero-section">
-        <h1>Welcome to Sedap Cravings Pastry Chef</h1>
-        <p>Experience the perfect slice of our signature matcha moist cake with matcha ganache.</p>
-    </main>
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            
+            <!-- Accordion for About Us -->
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="about/team.html">Our Team</a></li>
+                    <li><a href="about/marketing.html">Marketing Channels</a></li>
+                    <li><a href="about/achievements.html">Achievements</a></li>
+                    <li><a href="about/reviews.html">Customer Review</a></li>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/problem-solving.html">Problem Solving</a></li>
+                    <li><a href="about/reflection.html">Reflection</a></li>
+                </ul>
+            </li>
 
-    <!-- Link to your JavaScript file -->
+            <!-- Accordion for Personal Achievement -->
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="personal/director.html">Director</a></li>
+                    <li><a href="personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="personal/finance1.html">Finance 1</a></li>
+                    <li><a href="personal/finance2.html">Finance 2</a></li>
+                    <li><a href="personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. HERO SECTION WITH VIDEO BACKGROUND
+         ========================================== -->
+    <header class="hero-section">
+        <!-- Placeholder for background video -->
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="assets/images/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to</h1>
+            <h2>Sedap Cravings Pastry Chef</h2>
+            <p>Serving premium Matcha and Chocolate Moist Cakes</p>
+        </div>
+    </header>
+
+   <!-- ==========================================
+         4. EXPLORE TYPEWRITER SECTION (Solid Background)
+         ========================================== -->
+    <section class="explore-section">
+        <div class="explore-content">
+            <h2>Explore <span class="typewriter-text" id="typewriter">Deliciousness</span></h2>
+            <a href="about/products.html" class="action-btn">View Our Products</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4.5 YOUTUBE VIDEO SECTION
+         ========================================== -->
+    <section class="video-section">
+        <div class="video-container">
+            <!-- Replace 'YOUTUBE_VIDEO_ID' below with the 11-letter code from your YouTube link -->
+            <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. LECTURER & PARALLAX BACKGROUND SECTION
+         ========================================== -->
+    <section class="lecturer-section parallax-bg">
+        <!-- For the best effect, use a .png image with a transparent background! -->
+        <img src="assets/images/logo-scpc-cutout.png" alt="Lecturer" class="lecturer-img">
+        
+        <div class="quote-box">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>"Sedap Cravings provides a suitable learning environment for entrepreneurship, consistent with the needs to produce holistic graduates."</p>
+        </div>
+    </section>
+    
+    <!-- ==========================================
+         5.1 HIGHLIGHTS & NEWS TYPEWRITER
+         ========================================== -->
+    <section class="highlights-section">
+        <div class="highlights-label">Highlights</div>
+        <h2>Please Click For More <a href="about/achievements.html"><span class="typewriter-text" id="news-typewriter">News</span></a></h2>
+    </section>
+
+    <!-- ==========================================
+         5.2 SWIPEABLE TEAM CAROUSEL
+         ========================================== -->
+    <section class="team-carousel-section">
+        <h2>Meet Our Team</h2>
+        <div class="carousel-container">
+            <!-- Swipeable Card 1 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150" alt="Director">
+                <h3>Director</h3>
+                <a href="personal/director.html" class="action-btn">View Profile</a>
+            </div>
+            <!-- Swipeable Card 2 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150" alt="Secretary 1">
+                <h3>Secretary 1</h3>
+                <a href="personal/secretary1.html" class="action-btn">View Profile</a>
+            </div>
+            <!-- Swipeable Card 3 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150" alt="Finance 1">
+                <h3>Finance 1</h3>
+                <a href="personal/finance1.html" class="action-btn">View Profile</a>
+            </div>
+            <!-- Swipeable Card 4 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150" alt="Marketing 1">
+                <h3>Marketing 1</h3>
+                <a href="personal/marketing1.html" class="action-btn">View Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our custom JavaScript -->
     <script src="js/script.js"></script>
-    <!-- Trigger the navigation function specifically for the homepage -->
-    <script>
-        loadNav(''); // Empty quotes because we are already in the main folder
-    </script>
 </body>
 </html>

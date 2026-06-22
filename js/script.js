@@ -1,64 +1,132 @@
-// This function injects the navigation menu into any page.
-// The 'basePath' tells the links if they need to jump out of a folder (e.g., '../')
-function loadNav(basePath = '') {
-    const navHTML = `
-        <nav class="navbar">
-            
-            <!-- NEW: Brand Container with Logo Placeholder on the Far Left -->
-            <div class="brand-container">
-                <!-- REPLACE PLACEHOLDER IMAGE BELOW LATER -->
-                <img src="${basePath}assets/images/logo-placeholder.png" alt="Sedap Cravings Pastry Chef Logo" class="nav-logo">
-                <div class="logo-text">Sedap Cravings Pastry Chef</div>
-            </div>
-            
-            <!-- The Hamburger Icon for Mobile -->
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+// ==========================================
+// 1. HAMBURGER MENU LOGIC
+// ==========================================
+const mobileMenu = document.getElementById('mobile-menu');
+const sidebar = document.getElementById('sidebar');
 
-            <!-- The Navigation Links -->
-            <ul class="nav-links" id="nav-links">
-                <li><a href="${basePath}index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">About Us ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="${basePath}about/products.html">Products</a></li>
-                        <li><a href="${basePath}about/team.html">Team</a></li>
-                        <li><a href="${basePath}about/finance.html">Financial Statement</a></li>
-                        <li><a href="${basePath}about/vision.html">Vision, Mission & Objectives</a></li>
-                        <li><a href="${basePath}about/reviews.html">Customers' Reviews</a></li>
-                        <li><a href="${basePath}about/reflection.html">Reflection</a></li>
-                        <li><a href="${basePath}about/problem-solving.html">Problem Solving</a></li>
-                        <li><a href="${basePath}about/marketing.html">Marketing Channels</a></li>
-                        <li><a href="${basePath}about/achievements.html">Achievements</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Personal Achievement ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="${basePath}personal/director.html">Director</a></li>
-                        <li><a href="${basePath}personal/secretary1.html">Secretary 1</a></li>
-                        <li><a href="${basePath}personal/secretary2.html">Secretary 2</a></li>
-                        <li><a href="${basePath}personal/finance1.html">Finance 1</a></li>
-                        <li><a href="${basePath}personal/finance2.html">Finance 2</a></li>
-                        <li><a href="${basePath}personal/marketing1.html">Marketing 1</a></li>
-                        <li><a href="${basePath}personal/marketing2.html">Marketing 2</a></li>
-                    </ul>
-                </li>
-                <li><a href="${basePath}gallery.html">Gallery</a></li>
-                <li><a href="${basePath}contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    `;
+// Listen for a click on the hamburger icon
+mobileMenu.addEventListener('click', () => {
+    // Toggles the 'active' class to slide the menu in and out
+    sidebar.classList.toggle('active');
+});
 
-    // Finds the empty div in the HTML and fills it with the menu
-    document.getElementById('nav-container').innerHTML = navHTML;
+// ==========================================
+// 2. ACCORDION MENU LOGIC
+// ==========================================
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+        // Find the icon inside the clicked header
+        const icon = this.querySelector('.icon-toggle');
+        
+        // Find the hidden list right below the clicked header
+        const content = this.nextElementSibling;
+
+        // Toggle the icon between '+' and '-'
+        if (icon.classList.contains('fa-plus')) {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+        } else {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+        }
+
+        // Toggle the display of the sub-menu content
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    });
+});
+
+// ==========================================
+// 3. TYPEWRITER ANIMATION LOGIC
+// ==========================================
+const textArray = ["Deliciousness", "Matcha", "Chocolate", "Excellence"];
+let textIndex = 0;
+let charIndex = 0;
+const typewriterElement = document.getElementById('typewriter');
+let isDeleting = false;
+
+function typeWriter() {
+    if (!typewriterElement) return; // Failsafe if the element doesn't exist
+
+    const currentWord = textArray[textIndex];
+    
+    // Type or delete characters
+    if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    // Set typing speed
+    let typingSpeed = 150;
+    if (isDeleting) {
+        typingSpeed /= 2; // Delete twice as fast
+    }
+
+    // Determine what to do at the end of a word or when fully deleted
+    if (!isDeleting && charIndex === currentWord.length) {
+        typingSpeed = 2000; // Pause at the end of the word for 2 seconds
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        // Move to the next word in the array, looping back to the start if needed
+        textIndex = (textIndex + 1) % textArray.length;
+        typingSpeed = 500; // Pause briefly before typing the next word
+    }
+
+    // Run the function again after the calculated delay
+    setTimeout(typeWriter, typingSpeed);
 }
 
-// This function opens and closes the mobile menu
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('active');
+// Start the typewriter effect when the webpage fully loads
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeWriter, 1000); // Wait 1 second before starting
+});
+
+// ==========================================
+// 4. SECOND TYPEWRITER (HIGHLIGHTS NEWS)
+// ==========================================
+const newsArray = ["News", "Updates", "Events", "Achievements"];
+let newsIndex = 0;
+let newsCharIndex = 0;
+const newsElement = document.getElementById('news-typewriter');
+let isNewsDeleting = false;
+
+function newsTypeWriter() {
+    if (!newsElement) return;
+
+    const currentWord = newsArray[newsIndex];
+    
+    if (isNewsDeleting) {
+        newsElement.textContent = currentWord.substring(0, newsCharIndex - 1);
+        newsCharIndex--;
+    } else {
+        newsElement.textContent = currentWord.substring(0, newsCharIndex + 1);
+        newsCharIndex++;
+    }
+
+    let typingSpeed = 150;
+    if (isNewsDeleting) typingSpeed /= 2;
+
+    if (!isNewsDeleting && newsCharIndex === currentWord.length) {
+        typingSpeed = 2000;
+        isNewsDeleting = true;
+    } else if (isNewsDeleting && newsCharIndex === 0) {
+        isNewsDeleting = false;
+        newsIndex = (newsIndex + 1) % newsArray.length;
+        typingSpeed = 500;
+    }
+
+    setTimeout(newsTypeWriter, typingSpeed);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(newsTypeWriter, 1500); // Starts slightly after the first typewriter
+});

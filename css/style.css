@@ -1,985 +1,723 @@
-/* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* --- Global Reset & Variables --- */
+/* ==========================================
+   CSS VARIABLES (Your Brand Colors)
+   ========================================== */
 :root {
-    --matcha-dark: #2d5a27;
-    --matcha-main: #78a850;
-    --cream: #fffdf5;
+    --ums-dark: #111827; /* Professional dark background */
+    --matcha-green: #8A9A5B; /* Matcha accent */
+    --chocolate-brown: #4E342E; /* Chocolate accent */
+    --text-light: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* NEW: Applying the Modern, Clean Font */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--cream);
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-/* --- Navigation Bar (Laptop View) --- */
-.navbar {
+/* ==========================================
+   1. NAVIGATION BAR
+   ========================================== */
+.top-nav {
+    background-color: var(--ums-dark);
+    color: var(--text-light);
     display: flex;
-    justify-content: space-between; /* Pushes brand left, links right */
-    align-items: center;
-    background-color: var(--matcha-dark);
+    justify-content: space-between;
     padding: 15px 30px;
-    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* --- NEW: Brand & Logo Alignment --- */
-.brand-container {
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--matcha-green);
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   2. SLIDE-OUT SIDEBAR & ACCORDION
+   ========================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hidden off-screen by default */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--ums-dark);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+/* This class will be added by JavaScript later */
+.sidebar.active {
+    left: 0; 
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li a, .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 1px solid #1f2937;
+    cursor: pointer;
+}
+
+.nav-list li a:hover, .accordion-header:hover {
+    background-color: var(--chocolate-brown);
+}
+
+.accordion-content {
+    display: none; /* Sub-menus hidden by default */
+    background-color: #1f2937;
+    list-style: none;
+}
+
+.accordion-content li a {
+    padding-left: 40px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   3. HERO SECTION (Video Background)
+   ========================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between logo and text */
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
 }
 
-.nav-logo {
-    max-height: 40px; /* Forces irregular logos to fit without stretching */
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
     width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -2;
 }
 
-.logo-text {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.7); /* Dark overlay */
+    z-index: -1;
 }
 
-.nav-links {
+.hero-content h1 { font-size: 2.5rem; }
+.hero-content h2 { font-size: 3rem; color: var(--matcha-green); margin-bottom: 15px; }
+
+/* ==========================================
+   4. EXPLORE TYPEWRITER SECTION
+   ========================================== */
+.explore-section {
+    height: 40vh;
+    background-color: var(--ums-dark); /* Solid professional dark background */
     display: flex;
-    list-style: none;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
 }
 
-.nav-links a {
+.explore-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.typewriter-text { color: var(--matcha-green); border-right: 2px solid; }
+
+.action-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--matcha-green);
     color: white;
     text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
 }
 
-/* Hide Dropdowns by Default */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    padding: 10px;
-    list-style: none;
-    border-radius: 5px;
-}
-
-.dropdown-content a {
-    color: var(--matcha-dark);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block; /* Show dropdown when mouse hovers over it on laptop */
-}
-
-/* --- Hamburger Icon (Hidden on Laptop) --- */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-}
-
-/* --- Mobile View (Triggers when screen is smaller than 768px) --- */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* Show the 3 bars on phones */
-    }
-
-    .nav-links {
-        display: none; /* Hide the long list on phones */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: var(--matcha-dark);
-        padding: 20px 0;
-        text-align: center;
-    }
-
-    /* This class is added by our JavaScript toggleMenu() function */
-    .nav-links.active {
-        display: flex;
-    }
-
-    .dropdown:hover .dropdown-content {
-        position: relative; /* Stacks the sub-menus vertically on phones */
-    }
-}
-
-/* --- Hero Section Styling --- */
-.hero-section {
-    text-align: center;
-    padding: 50px 20px;
-    color: var(--matcha-dark);
-}
-
-/* --- Sub-Page Layouts --- */
-.page-content {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the content */
-    text-align: center;
-}
-
-/* --- Responsive Grid for Team and Products --- */
-.team-grid {
-    display: grid;
-    /* This creates responsive columns. They will be at least 250px wide, 
-       and expand to fill available space. It handles mobile perfectly! */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.team-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.team-card:hover {
-    transform: translateY(-5px); /* Cool hover effect */
-}
-
-.team-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Keeps images looking nice without squishing */
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--matcha-main);
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: var(--matcha-dark);
-}
-
-/* --- Personal Profile Template Layout --- */
-.profile-container {
+/* ==========================================
+   4.5 YOUTUBE VIDEO SECTION
+   ========================================== */
+.video-section {
+    background-color: #f9f9f9; 
+    padding: 60px 20px;
     display: flex;
-    flex-wrap: wrap; /* CRITICAL: This allows it to stack on mobile phones! */
-    gap: 40px;
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Soft, modern shadow */
-    text-align: left;
+    justify-content: center;
 }
 
-.profile-img {
-    flex: 1 1 300px; /* Tells the image to take up space, minimum 300px wide */
+.video-container {
+    position: relative;
     width: 100%;
-    max-height: 400px;
-    object-fit: cover; /* Prevents the photo from looking squished */
-    border-radius: 8px;
+    max-width: 800px;
+    /* This padding trick keeps the video in a perfect 16:9 ratio on all screens */
+    padding-bottom: 56.25%; 
+    height: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.profile-details {
-    flex: 2 1 400px; /* Tells the text to take up double the space of the image */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-/* Typography specifics for the profile */
-.profile-details h1 {
-    color: var(--text-dark);
-    margin-bottom: 5px;
+/* ==========================================
+   5. LECTURER QUOTE & PARALLAX BACKGROUND
+   ========================================== */
+.lecturer-section.parallax-bg {
+    padding: 80px 20px 60px;
+    text-align: center;
+    
+    /* We moved the Parallax effect here! */
+    background-image: url('../assets/images/parallax-bg.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
-.role-title {
-    color: var(--matcha-main);
-    font-weight: 400;
-    margin-bottom: 25px;
-    font-size: 1.2rem;
+/* This adds a dark tint over the scrolling background so the text is easy to read */
+.lecturer-section.parallax-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(17, 24, 39, 0.6); 
+    z-index: 1;
 }
 
-.profile-details h3 {
-    color: var(--matcha-dark);
+.lecturer-img {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2; /* Keeps the picture above the background tint */
+}
+
+.quote-box {
+    background-color: white;
+    color: var(--ums-dark);
+    padding: 30px;
+    margin: -30px auto 0; /* Pulls the box up to slightly overlap the picture */
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 3; /* Keeps the box on the very top layer */
+    border-top: 5px solid var(--matcha-green);
+}
+/* ==========================================
+   6. PROFESSIONAL FOOTER (UPDATED)
+   ========================================== */
+.main-footer {
+    background-color: var(--ums-dark);
+    color: var(--text-light);
+    padding: 60px 20px 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 280px;
+}
+
+.footer-col h3 {
+    color: var(--matcha-green);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--chocolate-brown);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Mission Column Specifics */
+.mission-col p { margin-bottom: 15px; }
+.disclaimer { font-size: 0.85rem; color: #9ca3af; }
+
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid var(--matcha-light);
-    padding-bottom: 5px;
 }
 
-.profile-details ul {
-    margin-left: 20px; /* Indents the bullet points nicely */
+.social-btn {
+    background-color: var(--matcha-green);
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.social-btn:hover { background-color: var(--chocolate-brown); }
+
+/* Links Column Specifics */
+.links-col ul { list-style: none; }
+.links-col li { margin-bottom: 12px; }
+.links-col a { color: var(--text-light); text-decoration: none; transition: color 0.3s ease; }
+.links-col a:hover { color: var(--matcha-green); }
+
+/* Contact Column Specifics */
+.contact-info { margin-top: 15px; border-top: 1px solid #374151; padding-top: 15px; }
+.contact-info i { color: var(--matcha-green); margin-right: 10px; }
+
+/* Bottom Bar */
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    text-align: center;
+}
+
+.footer-logo h2 { color: var(--matcha-green); font-size: 1.8rem; margin-bottom: 5px; }
+.footer-logo p { color: #9ca3af; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; }
+.copyright { font-size: 0.85rem; color: #6b7280; }
+
+/* ==========================================
+   UPDATED PARALLAX BACKGROUND (Temporary Image)
+   ========================================== */
+.parallax-section {
+    /* This temporary link lets you see the parallax effect! */
+    background-image: url('../assets/images/parallax-bg.jpg'); 
+}
+
+/* ==========================================
+   HIGHLIGHTS SECTION
+   ========================================== */
+.highlights-section {
+    background-color: var(--ums-dark);
+    color: var(--text-light);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.highlights-label {
+    display: inline-block;
+    background-color: #dc2626; /* Red highlight box */
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.profile-details p {
-    color: #444; /* Slightly softer text for reading long reflections */
+.highlights-section h2 {
+    font-size: 2rem;
 }
 
-/* =========================================
-   4. FINANCIAL STATEMENT TABLES
-   ========================================= */
+.highlights-section a {
+    text-decoration: none;
+}
+
+/* ==========================================
+   TEAM CAROUSEL (SWIPEABLE)
+   ========================================== */
+.team-carousel-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Makes it snap into place when swiping */
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+.team-card {
+    flex: 0 0 70%; /* Shows 1 card and a peek of the next on mobile */
+    max-width: 300px;
+    scroll-snap-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.team-card img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Footer Logo Addition */
+.footer-logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    color: var(--matcha-green);
+}
+
+/* ==========================================
+   FINANCIAL TABLES STYLING
+   ========================================== */
+.section-title {
+    color: var(--chocolate-brown);
+    margin-top: 50px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--matcha-green);
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
 .table-container {
-    margin-top: 20px;
-    margin-bottom: 40px; /* Gives space between multiple tables */
     overflow-x: auto; /* Allows horizontal scrolling on small phones */
-    border-radius: 8px;
+    margin-bottom: 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    background-color: white;
 }
 
 .finance-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
-    min-width: 600px; /* Prevents text from squishing on phones */
-}
-
-.finance-table th, 
-.finance-table td {
-    padding: 15px 20px;
     text-align: left;
-    border-bottom: 1px solid #eaeaea;
+    min-width: 600px; /* Ensures columns don't crush on mobile */
 }
 
 .finance-table th {
-    background-color: var(--matcha-dark);
-    color: white;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    background-color: var(--ums-dark);
+    color: var(--text-light);
+    padding: 18px 20px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
 }
 
-.finance-table tbody tr:hover {
-    background-color: var(--matcha-light);
-    transition: background-color 0.3s ease;
-}
-
-.finance-table tbody tr:last-child {
-    border-bottom: 2px solid var(--matcha-dark);
-}
-
-/* =========================================
-   6. OUR PRODUCTS PAGE
-   ========================================= */
-
-/* Intro Section */
-.intro-section {
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-}
-
-.tagline {
-    color: var(--matcha-main);
-    font-size: 2rem;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.intro-text {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.8;
-}
-
-/* Product Grid */
-.product-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-    gap: 40px;
-    justify-content: center;
-    margin-bottom: 60px;
-}
-
-.product-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    overflow: hidden; /* Keeps the image corners rounded */
-    flex: 1 1 350px; /* Responsive sizing */
-    max-width: 500px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-10px); /* Lifts the card when hovered */
-}
-
-.product-img {
-    width: 100%;
-    height: 300px; /* Fixed height for consistency */
-    object-fit: cover;
-}
-
-.product-info {
-    padding: 30px;
-}
-
-.product-info h2 {
-    color: var(--text-dark);
-    margin-bottom: 5px;
-}
-
-.flavor-tag {
-    color: var(--matcha-main);
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-.product-info p {
-    color: #666;
+.finance-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #4b5563;
     font-size: 0.95rem;
 }
 
-/* Call to Action Section */
-.cta-section {
-    background-color: var(--matcha-light);
-    padding: 50px 20px;
-    border-radius: 12px;
-    margin-top: 20px;
+.finance-table tr:nth-child(even) {
+    background-color: #f9fafb; /* Creates an alternating stripe pattern */
 }
 
-.cta-section h2 {
-    color: var(--matcha-dark);
-    margin-bottom: 10px;
+.finance-table tr:hover {
+    background-color: #f3f4f6; /* Highlights the row you are hovering over */
 }
 
-.cta-section p {
-    margin-bottom: 30px;
-    color: var(--text-dark);
+.total-row {
+    background-color: rgba(138, 154, 91, 0.2) !important; /* Light matcha highlight */
+    font-weight: bold;
+    color: var(--ums-dark) !important;
 }
 
+.summary-table th {
+    background-color: var(--chocolate-brown); /* Distinguishes summary from data */
+}
+
+/* ==========================================
+   UPDATED ORDER BUTTON (styled like top action-btn)
+   ========================================== */
 .order-btn {
     display: inline-block;
-    background-color: var(--matcha-main);
+    padding: 15px 35px;
+    background-color: var(--matcha-green);
     color: white;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    font-weight: bold;
     text-decoration: none;
-    border-radius: 30px; /* Pill shape */
-    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .order-btn:hover {
-    background-color: var(--matcha-dark);
-    transform: scale(1.05); /* Slight grow effect on hover */
+    background-color: var(--chocolate-brown);
+    transform: translateY(-2px);
 }
 
-/* =========================================
-   7. VISION, MISSION & OBJECTIVES PAGE
-   ========================================= */
-
-/* Centered Brand Display */
-.brand-display {
-    text-align: center;
-    margin-bottom: 50px;
-    animation: fadeIn 1s ease-in-out; /* Adds a smooth fade-in effect when the page loads */
+.order-btn i {
+    font-size: 0.9rem;
+    margin-left: 10px;
 }
 
-.center-logo {
-    max-width: 150px; /* Big enough to be prominent, small enough to be neat */
-    height: auto;
-    margin-bottom: 15px;
+/* ==========================================
+   PRODUCT SHOWCASE (Alternating Layout)
+   ========================================== */
+.product-showcase {
+    width: 100%;
 }
 
-.company-name {
-    color: var(--matcha-dark);
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+.showcase-item {
+    padding: 80px 20px;
 }
 
-/* VMO Grid Layout */
-.vmo-grid {
+.showcase-container {
     display: flex;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-    gap: 30px;
-    justify-content: center;
-}
-
-.vmo-card {
-    background-color: white;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    flex: 1 1 300px; /* Cards will be at least 300px wide, expanding to share space */
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.vmo-card:hover {
-    transform: translateY(-8px); /* Slight lift on hover */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.vmo-card h2 {
-    color: var(--matcha-main);
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-/* Adds a cool little underline beneath the card headings */
-.vmo-card h2::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 3px;
-    background-color: var(--matcha-light);
-    bottom: -8px;
-    left: 25%;
-}
-
-.vmo-card p {
-    color: #555;
-    line-height: 1.8;
-}
-
-/* Specific styling for the Objectives list */
-.objective-list {
-    text-align: left; /* Lists look better left-aligned */
-    color: #555;
-    line-height: 1.8;
-    margin-left: 20px; /* Indents the bullets */
-}
-
-.objective-list li {
-    margin-bottom: 10px;
-}
-
-/* Simple Fade-In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================================
-   8. MARKETING CHANNELS PAGE (SLIDERS)
-   ========================================= */
-
-.marketing-platform {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
-    text-align: left;
-}
-
-.platform-header {
-    display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    gap: 15px;
-}
-
-.platform-header h2 {
-    color: var(--matcha-dark);
-    font-size: 1.8rem;
-}
-
-/* Social Media Buttons */
-.social-btn {
-    padding: 10px 20px;
-    border-radius: 25px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.3s;
-}
-
-.social-btn:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-/* Custom platform colors for that professional touch */
-.ig-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.fb-btn { background-color: #1877F2; }
-.tt-btn { background-color: #000000; }
-
-/* Horizontal Slider Container */
-.slider-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Makes the images 'snap' into place */
-    padding-bottom: 15px; /* Room for the scrollbar */
-}
-
-/* Styling the Images inside the slider */
-.slide-img {
-    flex: 0 0 85%; /* Shows 85% of an image so the user knows they can swipe */
-    max-width: 300px; /* Prevents screenshots from being too massive on laptops */
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    scroll-snap-align: center; /* Snaps the image to the center of the box */
-}
-
-/* Sleek Custom Scrollbar for the sliders */
-.slider-container::-webkit-scrollbar {
-    height: 8px;
-}
-.slider-container::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius: 4px;
-}
-.slider-container::-webkit-scrollbar-thumb {
-    background: var(--matcha-main); 
-    border-radius: 4px;
-}
-.slider-container::-webkit-scrollbar-thumb:hover {
-    background: var(--matcha-dark); 
-}
-
-/* =========================================
-   9. PROBLEM SOLVING PAGE
-   ========================================= */
-
-.ps-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-    gap: 30px;
-    margin-top: 40px;
     justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
 }
 
-.ps-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    flex: 1 1 400px; /* Responsive width */
-    max-width: 600px;
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s;
-}
-
-.ps-card:hover {
-    transform: translateY(-5px);
-}
-
-/* The Problem Area (Red/Orange accent) */
-.problem-box {
-    background-color: #fff8f8; /* Very soft red/pink background */
-    border-left: 5px solid #ff6b6b; /* Red warning border */
-    padding: 30px;
-}
-
-.problem-box h3 {
-    color: #d63031;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-.problem-box p {
-    color: #555;
-    font-size: 0.95rem;
-}
-
-/* The Solution Area (Matcha Green accent) */
-.solution-box {
-    background-color: var(--matcha-light);
-    border-left: 5px solid var(--matcha-main);
-    padding: 30px;
-}
-
-.solution-box h3 {
-    color: var(--matcha-dark);
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-.solution-box p {
-    color: var(--text-dark);
-    font-size: 0.95rem;
-}
-
-/* =========================================
-   10. REFLECTION PAGE
-   ========================================= */
-
-/* Group Photos Section */
-.group-photos-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-
-.group-img {
+.showcase-image {
     flex: 1 1 400px;
     max-width: 500px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 3px solid white; /* Adds a nice photo-frame border */
 }
 
-/* Reflection Cards Grid */
-.reflection-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-.reflection-card {
-    background-color: white;
-    padding: 30px 30px 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    flex: 1 1 300px;
-    text-align: left;
-    position: relative;
-    border-top: 4px solid var(--matcha-main);
-}
-
-.quote-mark {
-    color: var(--matcha-light);
-    font-size: 4rem;
-    line-height: 0;
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    z-index: 1; /* Puts the quote behind the text */
-}
-
-.reflection-card h3 {
-    color: var(--matcha-dark);
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 2;
-    padding-left: 15px; /* Moves text away from the giant quote mark */
-}
-
-.reflection-card p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    font-style: italic; /* Makes it look like a reflection/quote */
-    position: relative;
-    z-index: 2;
-}
-
-/* =========================================
-   11. CUSTOMER REVIEWS PAGE
-   ========================================= */
-
-.review-grid {
-    display: grid;
-    /* Automatically fits as many 250px wide images as possible per row */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    justify-items: center; /* Centers the images inside their grid columns */
-}
-
-.review-img {
+.showcase-image img {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensures the images look neat without stretching */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.review-img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+.showcase-text {
+    flex: 1 1 400px;
+    max-width: 500px;
 }
 
-/* =========================================
-   12. ACHIEVEMENTS & CHARTS PAGE
-   ========================================= */
-
-.section-divider {
-    border: 0;
-    height: 1px;
-    background-color: #ddd;
-    margin: 50px auto;
-    width: 80%;
+.showcase-text .flavor-tag {
+    display: inline-block;
+    background-color: var(--ums-dark);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
-.chart-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.chart-card:hover {
-    transform: translateY(-5px);
-}
-
-.chart-card h2, .chart-card h3 {
-    color: var(--matcha-dark);
+.showcase-text h2 {
+    font-size: 2.2rem;
+    color: var(--ums-dark);
     margin-bottom: 5px;
 }
 
-.chart-card p {
-    color: #666;
+.showcase-text h3 {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: normal;
     margin-bottom: 20px;
-    font-size: 0.95rem;
 }
 
-/* Overall Chart Sizing */
-.overall-chart-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+.showcase-text p {
+    line-height: 1.8;
+    color: #444;
 }
 
-.large-chart {
-    width: 100%;
-    max-width: 600px;
+/* Specific Section Themes & Alternation */
+.matcha-item {
+    background-color: white;
+}
+.matcha-item h2 { color: var(--matcha-green); }
+
+.chocolate-item {
+    background-color: var(--ums-dark);
+}
+.chocolate-item h2 { color: var(--chocolate-brown); }
+.chocolate-item h3, .chocolate-item p { color: #d1d5db; }
+.chocolate-item .flavor-tag { background-color: var(--matcha-green); }
+
+/* This is the magic rule that swaps image/text on larger screens */
+@media (min-width: 768px) {
+    .chocolate-item .showcase-container {
+        flex-direction: row-reverse;
+    }
 }
 
-/* The canvas container forces the chart to obey dimensions */
-.canvas-container {
-    position: relative;
-    height: 300px; 
-    width: 100%;
-}
-
-/* Member Charts Grid */
-.member-charts-grid {
-    display: grid;
-    /* Fits as many 280px cards as possible per row */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.member-charts-grid .chart-card canvas {
-    max-height: 250px; /* Keeps the smaller pie charts from getting too big */
-}
-
-/* =========================================
-   13. ACHIEVEMENTS PAGE (REPORT & EVIDENCE)
-   ========================================= */
-
-/* Formal Report Summary Box */
+/* ==========================================
+   ACHIEVEMENTS REPORT SUMMARY BOX
+   ========================================== */
 .report-summary-box {
-    background-color: var(--matcha-light);
-    border-left: 6px solid var(--matcha-main);
+    background-color: white;
     padding: 40px;
-    margin: 40px auto 0 auto;
-    border-radius: 8px;
-    max-width: 900px; /* Keeps the text from getting too wide to read */
-    text-align: left;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.report-summary-box h2 {
-    color: var(--matcha-dark);
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.report-summary-box p {
-    color: #333;
-    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--matcha-green);
+    margin-bottom: 50px;
     line-height: 1.8;
 }
 
-.report-summary-box ul {
-    margin-left: 20px;
+.report-summary-box h2 {
+    color: var(--ums-dark);
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
-.report-summary-box li {
-    color: #333;
-    margin-bottom: 10px;
-    line-height: 1.7;
+.highlight-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border: 1px solid #e5e7eb;
 }
 
-/* Weekly Evidence Grid */
+.stat { text-align: center; margin: 10px; }
+.stat h3 { font-size: 2rem; color: var(--chocolate-brown); margin-bottom: 5px; }
+.stat p { font-size: 0.9rem; color: #6b7280; font-weight: bold; text-transform: uppercase; }
+
+.custom-bullet-list { list-style: none; padding: 0; margin-top: 20px; }
+.custom-bullet-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+.custom-bullet-list i { color: var(--matcha-green); margin-top: 5px; margin-right: 15px; font-size: 1.2rem; }
+
+/* ==========================================
+   ACHIEVEMENTS REPORT SUMMARY BOX
+   ========================================== */
+.report-summary-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--matcha-green);
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+
+.report-summary-box h2 {
+    color: var(--ums-dark);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.highlight-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border: 1px solid #e5e7eb;
+}
+
+.stat { text-align: center; margin: 10px; }
+.stat h3 { font-size: 2rem; color: var(--chocolate-brown); margin-bottom: 5px; }
+.stat p { font-size: 0.9rem; color: #6b7280; font-weight: bold; text-transform: uppercase; }
+
+.custom-bullet-list { list-style: none; padding: 0; margin-top: 20px; }
+.custom-bullet-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+.custom-bullet-list i { color: var(--matcha-green); margin-top: 5px; margin-right: 15px; font-size: 1.2rem; }
+
+/* ==========================================
+   CHARTS GRID
+   ========================================== */
+.overall-chart-section { display: flex; justify-content: center; margin-bottom: 50px; }
+.large-chart { width: 100%; max-width: 500px; }
+.canvas-container { position: relative; height: 300px; width: 100%; }
+.member-canvas-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.member-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.chart-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f3f4f6;
+    transition: transform 0.2s ease;
+}
+
+.chart-card:hover { transform: translateY(-5px); }
+.chart-card h3 { color: var(--ums-dark); margin-bottom: 5px; }
+.chart-card p { font-size: 0.9rem; color: #6b7280; margin-bottom: 15px; font-weight: bold; }
+
+/* ==========================================
+   EVIDENCE GRID
+   ========================================== */
 .evidence-grid {
     display: grid;
-    /* This creates responsive columns. It will naturally show all 5 on a big screen, 
-       and stack them neatly on a small phone screen. */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .evidence-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: left;
-    width: 100%;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.evidence-card h3 {
-    color: var(--matcha-dark);
+.evidence-header {
+    background-color: var(--matcha-green);
+    color: white;
+    padding: 15px;
     text-align: center;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
 }
 
 .evidence-img {
     width: 100%;
-    height: auto;
-    object-fit: contain; /* Prevents screenshots from being cut off */
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    margin-bottom: 15px;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
 }
 
 .evidence-report {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 3px solid var(--matcha-main);
-}
-
-/* =========================================
-   14. CONTACT PAGE
-   ========================================= */
-
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 40px;
-    text-align: left;
-}
-
-.contact-info-card, .contact-form-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    flex: 1 1 400px; /* Forces them to sit side-by-side on laptop */
-}
-
-/* Info Column Styling */
-.contact-info-card h2 {
-    color: var(--matcha-dark);
-    margin-bottom: 25px;
-    font-size: 1.8rem;
-}
-
-.info-block {
-    margin-bottom: 25px;
-}
-
-.info-block h4 {
-    color: var(--matcha-main);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.info-block p {
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Google Map Container */
-.map-container iframe {
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Form Column Styling */
-.form-intro {
-    color: #555;
+    padding: 20px;
     font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eaeaea;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-}
-
-.custom-form input, 
-.custom-form textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.custom-form textarea {
-    resize: vertical; /* Allows the user to drag the box taller if needed */
-    min-height: 120px;
-}
-
-/* Cool glowing effect when clicking on an input box */
-.custom-form input:focus, 
-.custom-form textarea:focus {
-    border-color: var(--matcha-main);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(120, 168, 80, 0.2);
-    background-color: white;
-}
-
-.submit-btn {
-    background-color: var(--matcha-main);
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.submit-btn:hover {
-    background-color: var(--matcha-dark);
-    transform: translateY(-3px);
+    color: #4b5563;
+    line-height: 1.6;
 }
