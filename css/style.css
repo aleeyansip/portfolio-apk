@@ -1377,66 +1377,21 @@ body {
 }
 
 /* ==========================================
-   PERSONAL PORTFOLIO: FINANCIALS & EVIDENCE
+   NAVIGATION LOGO STYLING
    ========================================== */
-.financial-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.stat-box {
-    background-color: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s ease;
-}
-
-.stat-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.stat-box h4 {
-    font-size: 0.85rem;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
-
-.stat-value {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--ums-dark);
-}
-
-.highlight-stat {
-    background-color: #f4fbf4; /* Light matcha tint */
-    border-color: var(--matcha-green);
-}
-
-/* Action Shots Gallery */
-.action-shots-gallery {
+.top-nav .logo {
     display: flex;
-    gap: 20px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px; /* Creates the perfect spacing between the image and the text */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--matcha-green); /* Or whatever your existing text color is */
+    text-decoration: none;
 }
 
-.action-img {
-    flex: 1 1 200px;
-    height: 180px;
+.nav-logo-img {
+    height: 35px; /* Keeps the logo small and contained */
+    width: auto;  /* Ensures the logo doesn't stretch or distort */
+    border-radius: 50%; /* Optional: Makes the logo circular if your image is square */
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border: 2px solid #f3f4f6;
-    transition: transform 0.3s ease;
-}
-
-.action-img:hover {
-    transform: scale(1.03);
 }
