@@ -3,54 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Vision & Mission</title>
+    <title>Vision & Mission - Sedap Cravings</title>
     
+    <!-- Link to your main stylesheet and FontAwesome icons -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        
-        <section class="brand-display">
-            <img src="../assets/images/logo-placeholder.png" alt="Sedap Cravings Logo" class="center-logo">
-            <h1 class="company-name">Sedap Cravings Pastry Chef</h1>
-        </section>
-
-        <section class="vmo-grid">
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
             
-            <div class="vmo-card">
-                <h2>Our Vision</h2>
-                <p>Our Company's vision is to become the preferred dessert brand of choice by offering unique, trending flavors through our distinct, modern, and widely loved matcha moist cake products, specifically targetting the student demographic, in line with our tagline: 'Hidup lebih manis dengan matcha.'</p>
-            </div>
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="marketing.html">Marketing Channels</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="reviews.html">Customer Review</a></li>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="problem-solving.html">Problem Solving</a></li>
+                    <li><a href="reflection.html">Reflection</a></li>
+                </ul>
+            </li>
 
-            <div class="vmo-card">
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Director</a></li>
+                    <li><a href="../personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="../personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="../personal/finance1.html">Finance 1</a></li>
+                    <li><a href="../personal/finance2.html">Finance 2</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="../personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Vision, Mission & Objectives</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">The driving force behind Sedap Cravings Pastry Chef.</p>
+    </header>
+
+    <!-- ==========================================
+         4. VMO CONTENT GRID
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1100px; margin: 0 auto;">
+        
+        <div class="vmo-container">
+            
+            <!-- Vision -->
+            <section class="vmo-card">
+                <div class="icon-box"><i class="fas fa-eye"></i></div>
+                <h2>Our Vision</h2>
+                <p>Our Company's vision is to become the preferred dessert brand of choice by offering unique, trending flavors through our distinct, modern, and widely loved matcha moist cake products, specifically targetting the student demographic, in line with our tagline: <strong>'Hidup lebih manis dengan matcha.'</strong></p>
+            </section>
+
+            <!-- Mission -->
+            <section class="vmo-card">
+                <div class="icon-box"><i class="fas fa-bullseye"></i></div>
                 <h2>Our Mission</h2>
                 <ul class="objective-list">
-                    <li> To provide high-quality, homemade Matcha Moist Cakes that cater to the exact tastes and preferences of our customers.</li>
-                    <li> To offer budget-friendly, student-centric pricing without compromising on the premium quality of our products.</li>
-                    <li> To produce desserts with a unique, modern taste that aligns with current culinary trends.</li>
-                    <li> To ensure our products are easily accessible through a fast, practical, and seamless Cash-On-Delivery (COD) service.</li>
+                    <li>To provide high-quality, homemade Matcha Moist Cakes that cater to the exact tastes and preferences of our customers.</li>
+                    <li>To offer budget-friendly, student-centric pricing without compromising on the premium quality of our products.</li>
+                    <li>To produce desserts with a unique, modern taste that aligns with current culinary trends.</li>
+                    <li>To ensure our products are easily accessible through a fast, practical, and seamless Cash-On-Delivery (COD) service.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="vmo-card">
+            <!-- Objectives -->
+            <section class="vmo-card">
+                <div class="icon-box"><i class="fas fa-tasks"></i></div>
                 <h2>Our Objectives</h2>
                 <ul class="objective-list">
-                    <li>Objective 1: To capture a 20% market share of the local students population within the first six months of operations by executing targeted social media marketing campaigns and setting up strategic on-campus micro-distribution.</li>
-                    <li>Objective 2: To maintain an order fulfillment rate where at least 95% of COD orders are successfilly completed within 30 minutes of the scheduled time, maximizing customer convenience and dessert freshness.</li>
-                    <li>Objective 3: To launch at least one limited-edition variant of moist cake, utilizing customer feedback metrics to continuously adapt to evolving dessert trends among youth.</li>
+                    <li><strong>Objective 1:</strong> To capture a 20% market share of the local students population within the first six months of operations by executing targeted social media marketing campaigns and setting up strategic on-campus micro-distribution.</li>
+                    <li><strong>Objective 2:</strong> To maintain an order fulfillment rate where at least 95% of COD orders are successfully completed within 30 minutes of the scheduled time, maximizing customer convenience and dessert freshness.</li>
+                    <li><strong>Objective 3:</strong> To launch at least one limited-edition variant of moist cake, utilizing customer feedback metrics to continuously adapt to evolving dessert trends among youth.</li>
                 </ul>
-            </div>
+            </section>
 
-        </section>
+        </div>
 
     </main>
 
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our JavaScript -->
     <script src="../js/script.js"></script>
-    <script>
-        loadNav('../'); 
-    </script>
 </body>
 </html>

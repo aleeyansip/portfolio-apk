@@ -721,3 +721,71 @@ body {
     color: #4b5563;
     line-height: 1.6;
 }
+
+/* ==========================================
+   VISION, MISSION & OBJECTIVES STYLING
+   ========================================== */
+.vmo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.vmo-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--matcha-green);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.vmo-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: var(--matcha-green);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vmo-card h2 { 
+    color: var(--ums-dark); 
+    margin-bottom: 20px; 
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.vmo-card p {
+    line-height: 1.8;
+    color: #4b5563;
+}
+
+.objective-list { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.objective-list li { 
+    margin-bottom: 15px; 
+    padding-left: 25px; 
+    position: relative; 
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+.objective-list li::before { 
+    content: "\f058"; /* FontAwesome check-circle icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--matcha-green); 
+    position: absolute; 
+    left: 0; 
+    top: 2px;
+}
