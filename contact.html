@@ -3,36 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Contact Us</title>
+    <title>Contact Us - Sedap Cravings Pastry Chef</title>
     
+    <!-- Links don't need ../ because this file is in the root folder -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <h1>Contact Us</h1>
-        <p>We would love to hear from you. Reach out for bulk orders, inquiries, or feedback!</p>
-
-        <section class="contact-container">
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR (Root Relative Links)
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
             
-            <div class="contact-info-card">
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="about/team.html">Our Team</a></li>
+                    <li><a href="about/marketing.html">Marketing Channels</a></li>
+                    <li><a href="about/achievements.html">Achievements</a></li>
+                    <li><a href="about/reviews.html">Customer Review</a></li>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/problem-solving.html">Problem Solving</a></li>
+                    <li><a href="about/reflection.html">Reflection</a></li>
+                </ul>
+            </li>
+
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="personal/director.html">Director</a></li>
+                    <li><a href="personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="personal/finance1.html">Finance 1</a></li>
+                    <li><a href="personal/finance2.html">Finance 2</a></li>
+                    <li><a href="personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Contact Us</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">We would love to hear from you. Reach out for bulk orders, inquiries, or feedback!</p>
+    </header>
+
+    <!-- ==========================================
+         4. CONTACT CONTENT GRID
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
+        
+        <section class="contact-page-wrapper">
+            
+            <!-- Left Side: Contact Details & Map -->
+            <div class="contact-card info-card">
                 <h2>Our Details</h2>
                 
                 <div class="info-block">
-                    <h4>📍 Address</h4>
-                    <p>Fakulti Sains Sosial dan Kemanuasiaan,<br>Universiti Malaysia Sabah,<br>Jalan UMS, 88400 Kota Kinabalu, Sabah</p>
+                    <i class="fas fa-map-marker-alt icon-highlight"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Faculty of Social Science and Humanities,<br>Universiti Malaysia Sabah,<br>Jalan UMS, 88400 Kota Kinabalu, Sabah</p>
+                    </div>
                 </div>
                 
                 <div class="info-block">
-                    <h4>📞 Phone</h4>
-                    <p>012-540 9399 <br><em>(Ihjaz, Director)</em></p>
+                    <i class="fas fa-phone-alt icon-highlight"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>012-540 9399 <br><span style="color: #6b7280; font-size: 0.9rem;">(Ihjaz, Director)</span></p>
+                    </div>
                 </div>
                 
                 <div class="info-block">
-                    <h4>✉️ Email</h4>
-                    <p>sedapcravingspastrychefums@gmail.com</p>
+                    <i class="fas fa-envelope icon-highlight"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>sedapcravingspastrychefums@gmail.com</p>
+                    </div>
                 </div>
 
                 <div class="map-container">
@@ -40,7 +109,7 @@
                         src="https://maps.google.com/maps?q=Fakulti%20Sains%20Sosial%20dan%20Kemanuasiaan,%20Universiti%20Malaysia%20Sabah&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                         width="100%" 
                         height="250" 
-                        style="border:0;" 
+                        style="border:0; border-radius: 10px;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
@@ -48,19 +117,21 @@
                 </div>
             </div>
 
-            <div class="contact-form-card">
-                <p class="form-intro">Thank you for visiting Sedap Cravings Pastry Chef! We specialize in creating delicious and premium moist cakes that are perfect for any occasion. Our team is located in Kota Kinabalu, Sabah, Malaysia and we take pride in using the finest, high-quality ingredients in our pastries.</p>
+            <!-- Right Side: Contact Form -->
+            <div class="contact-card form-card">
+                <h2>Send a Message</h2>
+                <p class="form-intro">Thank you for visiting Sedap Cravings Pastry Chef! We specialize in creating delicious and premium moist cakes that are perfect for any occasion. Drop us a line below.</p>
                 
-                <form action="#" method="POST" class="custom-form">
+                <form action="#" method="POST" class="custom-contact-form">
                     
                     <div class="input-group">
-                        <label for="name">Full name</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="@" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
                     </div>
 
                     <div class="input-group">
@@ -68,17 +139,65 @@
                         <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">SUBMIT</button>
+                    <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
 
         </section>
+
     </main>
 
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER (Root Relative Links)
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings Pastry Chef</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings Pastry Chef. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our JavaScript -->
     <script src="js/script.js"></script>
-    <script>
-        // Use empty quotes '' because contact.html is in the main folder!
-        loadNav(''); 
-    </script>
 </body>
 </html>

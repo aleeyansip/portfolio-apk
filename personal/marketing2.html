@@ -3,39 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Marketing 2</title>
+    <title>Deputy Marketing Manager Portfolio - Sedap Cravings Pastry Chef</title>
     
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <div class="profile-container">
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
             
-            <img src="../assets/images/profile-placeholder.jpg" alt="Marketing 2 Profile" class="profile-img">
-            
-            <div class="profile-details">
-                <h1>Naslin binti Guntur</h1>
-                <h2 class="role-title">Marketing 2</h2>
-                
-                <h3>Personal Achievements</h3>
-                <ul>
-                    <li>[Placeholder Achievement 1]</li>
-                    <li>[Placeholder Achievement 2]</li>
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../about/products.html">Our Products</a></li>
+                    <li><a href="../about/vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="../about/team.html">Our Team</a></li>
+                    <li><a href="../about/marketing.html">Marketing Channels</a></li>
+                    <li><a href="../about/achievements.html">Achievements</a></li>
+                    <li><a href="../about/reviews.html">Customer Review</a></li>
+                    <li><a href="../about/finance.html">Financial Statement</a></li>
+                    <li><a href="../about/problem-solving.html">Problem Solving</a></li>
+                    <li><a href="../about/reflection.html">Reflection</a></li>
                 </ul>
+            </li>
 
-                <h3>Personal Reflection</h3>
-                <p>[Placeholder Reflection]</p>
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="director.html">Director</a></li>
+                    <li><a href="secretary1.html">Secretary 1</a></li>
+                    <li><a href="secretary2.html">Secretary 2</a></li>
+                    <li><a href="finance1.html">Finance 1</a></li>
+                    <li><a href="finance2.html">Finance 2</a></li>
+                    <li><a href="marketing1.html">Marketing 1</a></li>
+                    <li><a href="marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Deputy Marketing Manager</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">Personal Achievements & Reflections</p>
+    </header>
+
+    <!-- ==========================================
+         4. PERSONAL PROFILE CARD
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1100px; margin: 0 auto;">
+        
+        <div class="personal-profile-card">
+            
+            <!-- Left Side: Image and Name -->
+            <div class="profile-left">
+                <img src="../assets/images/placeholder.jpg" alt="Naslin binti Guntur" class="profile-large-img">
+                <h2 class="profile-name">Naslin binti Guntur</h2>
+                <span class="role-badge" style="background-color: #E1306C;">Deputy Marketing</span>
+            </div>
+            
+            <!-- Right Side: Details -->
+            <div class="profile-right">
+                
+                <!-- SECTION A: Financial Breakdown (Member 7 Data) -->
+                <div class="info-section">
+                    <h3><i class="fas fa-chart-pie"></i> Personal Sales Performance</h3>
+                    <p style="color: #6b7280; margin-bottom: 15px; font-size: 0.95rem;">A breakdown of individual contributions to the business revenue and expenses.</p>
+                    
+                    <div class="financial-stats-grid">
+                        <div class="stat-box">
+                            <h4>Total Units Sold</h4>
+                            <p class="stat-value">[XX] Cakes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Gross Revenue</h4>
+                            <p class="stat-value">RM 237.40</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Expense Share</h4>
+                            <p class="stat-value" style="color: #ef4444;">- RM 68.66</p>
+                        </div>
+                        <div class="stat-box highlight-stat">
+                            <h4>Final Take-Home</h4>
+                            <p class="stat-value" style="color: var(--matcha-green);">RM 168.74</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION B: Role-Specific Contributions -->
+                <div class="info-section">
+                    <h3><i class="fas fa-tasks"></i> Role-Specific Contributions</h3>
+                    <ul class="achievement-list">
+                        <li>Assisted the Marketing Manager in executing the digital strategy, driving engagement across our social media platforms (Facebook and TikTok).</li>
+                        <li>Managed direct customer communications via WhatsApp, answering inquiries and organizing COD (Cash-On-Delivery) logistics.</li>
+                        <li>Contributed actively to on-ground promotional activities during Expo Day, helping the team achieve a complete sell-out of the Matcha Moist Cakes.</li>
+                    </ul>
+                </div>
+
+                <!-- SECTION C: Personal Reflection -->
+                <div class="info-section">
+                    <h3><i class="fas fa-pen-fancy"></i> Personal Reflection</h3>
+                    <div class="reflection-quote">
+                        <p>"[Placeholder Reflection: Describe your experience supporting the marketing efforts. What was it like directly handling customer inquiries and feedback? How did managing the COD logistics test your problem-solving skills?]"</p>
+                    </div>
+                </div>
+
+                <!-- SECTION D: Visual Evidence -->
+                <div class="info-section">
+                    <h3><i class="fas fa-camera-retro"></i> Action Shots</h3>
+                    <div class="action-shots-gallery">
+                        <img src="../assets/images/deputy-marketing-action1-placeholder.jpg" alt="Deputy Marketing working 1" class="action-img">
+                        <img src="../assets/images/deputy-marketing-action2-placeholder.jpg" alt="Deputy Marketing working 2" class="action-img">
+                    </div>
+                </div>
+
             </div>
 
         </div>
+
     </main>
 
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../about/finance.html">Financial Statement</a></li>
+                    <li><a href="../about/products.html">Our Products</a></li>
+                    <li><a href="../about/team.html">Meet the Team</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings Pastry Chef</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings Pastry Chef. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
     <script src="../js/script.js"></script>
-    <script>
-        loadNav('../'); 
-    </script>
 </body>
 </html>

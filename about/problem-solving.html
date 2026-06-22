@@ -3,51 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Problem Solving</title>
+    <title>Problem Solving - Sedap Cravings Pastry Chef</title>
     
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <h1>Problem Solving</h1>
-        <p>Every business faces challenges. Here is how Sedap Cravings Pastry Chef overcame ours.</p>
-
-        <section class="ps-grid">
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
             
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="marketing.html">Marketing Channels</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="reviews.html">Customer Review</a></li>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="problem-solving.html">Problem Solving</a></li>
+                    <li><a href="reflection.html">Reflection</a></li>
+                </ul>
+            </li>
+
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Director</a></li>
+                    <li><a href="../personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="../personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="../personal/finance1.html">Finance 1</a></li>
+                    <li><a href="../personal/finance2.html">Finance 2</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="../personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Problem Solving</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">Every business faces challenges. Here is how Sedap Cravings Pastry Chef overcame ours.</p>
+    </header>
+
+    <!-- ==========================================
+         4. PROBLEM SOLVING GRID
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1000px; margin: 0 auto;">
+        
+        <div class="ps-container">
+            
+            <!-- CHALLENGE 1 -->
             <div class="ps-card">
                 <div class="problem-box">
-                    <h3>Challenge 1: [ISI]</h3>
-                    <p>[Explain apa la kono challenge nya pasal tu"]</p>
+                    <div class="box-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Challenge 1: [Insert Title Here]</h3>
+                    </div>
+                    <p>[Explain the specific challenge your team faced here. What was the issue and how did it affect the business?]</p>
                 </div>
                 
                 <div class="solution-box">
-                    <h3>Our Solution</h3>
-                    <p>[Apa la kono solution nya"]</p>
+                    <div class="box-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Our Solution</h3>
+                    </div>
+                    <p>[Explain the steps your team took to solve this challenge. What was the final outcome?]</p>
                 </div>
             </div>
 
+            <!-- CHALLENGE 2 -->
             <div class="ps-card">
                 <div class="problem-box">
-                    <h3>Challenge 2: [sama juga mcm diatas]</h3>
-                    <p>[Explain apa la kono challenge nya pasal tu"]</p>
+                    <div class="box-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Challenge 2: [Insert Title Here]</h3>
+                    </div>
+                    <p>[Explain the specific challenge your team faced here. What was the issue and how did it affect the business?]</p>
                 </div>
                 
                 <div class="solution-box">
-                    <h3>Our Solution</h3>
-                    <p>[Apa la kono solution nya"]</p>
+                    <div class="box-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Our Solution</h3>
+                    </div>
+                    <p>[Explain the steps your team took to solve this challenge. What was the final outcome?]</p>
                 </div>
             </div>
 
-        </section>
+        </div>
 
     </main>
 
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings Pastry Chef</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings Pastry Chef. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our JavaScript -->
     <script src="../js/script.js"></script>
-    <script>
-        loadNav('../'); 
-    </script>
 </body>
 </html>

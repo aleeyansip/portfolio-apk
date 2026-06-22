@@ -3,83 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedap Cravings Pastry Chef | Our Team</title>
+    <title>Our Team - Sedap Cravings Pastry Chef</title>
     
-    <!-- Notice the ../ to jump out of the 'about' folder -->
+    <!-- Link to our main stylesheet and FontAwesome icons -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- The Navigation Container -->
-    <div id="nav-container"></div>
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">Sedap Cravings Pastry Chef</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <h1>Meet Our Team</h1>
-        <p>The dedicated members behind Sedap Cravings Pastry Chef.</p>
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="marketing.html">Marketing Channels</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="reviews.html">Customer Review</a></li>
+                    <li><a href="finance.html">Financial Statement</a></li>
+                    <li><a href="problem-solving.html">Problem Solving</a></li>
+                    <li><a href="reflection.html">Reflection</a></li>
+                </ul>
+            </li>
 
-        <!-- The Grid Container for Members -->
-        <div class="team-grid">
-            <!-- Member 1 -->
-            <div class="team-card">
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Director</a></li>
+                    <li><a href="../personal/secretary1.html">Secretary 1</a></li>
+                    <li><a href="../personal/secretary2.html">Secretary 2</a></li>
+                    <li><a href="../personal/finance1.html">Finance 1</a></li>
+                    <li><a href="../personal/finance2.html">Finance 2</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing 1</a></li>
+                    <li><a href="../personal/marketing2.html">Marketing 2</a></li>
+                </ul>
+            </li>
+
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green); font-size: 2.5rem; margin-bottom: 15px;">Meet Our Team</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">The dedicated members behind Sedap Cravings Pastry Chef.</p>
+    </header>
+
+    <!-- ==========================================
+         4. TEAM PROFILE GRID
+         ========================================== -->
+    <main class="content-section" style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
+        
+        <div class="team-page-grid">
+            
+            <!-- Member 1: Director -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Director">
                 <h3>Ihjaz Nazhif Nuzie</h3>
-                <p>Executive Director</p>
-                <a href="../personal/director.html" class="btn">View Achievements</a>
+                <span class="role-badge">Executive Director</span>
+                <a href="../personal/director.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
             
-            <!-- Member 2 -->
-            <div class="team-card">
+            <!-- Member 2: Head Secretary -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Head Secretary">
                 <h3>Henroland Aping</h3>
-                <p>Head Secretary</p>
-                <a href="../personal/secretary1.html" class="btn">View Achievements</a>
+                <span class="role-badge">Head Secretary</span>
+                <a href="../personal/secretary1.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
             
-            <div class="team-card">
+            <!-- Member 3: Deputy Secretary -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Deputy of Secretary">
                 <h3>Nur Shahidah binti Hamdan</h3>
-                <p>Deputy of Secretary</p>
-                <a href="../personal/secretary2.html" class="btn">View Achievements</a>
+                <span class="role-badge">Deputy of Secretary</span>
+                <a href="../personal/secretary2.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="team-card">
+            <!-- Member 4: Finance Manager -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Finance Manager">
                 <h3>NurYuhyi binti Chenawe</h3>
-                <p>Finance Manager</p>
-                <a href="../personal/finance1.html" class="btn">View Achievements</a>
+                <span class="role-badge">Finance Manager</span>
+                <a href="../personal/finance1.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="team-card">
+            <!-- Member 5: Deputy Finance -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Deputy Finance Manager">
                 <h3>Nurul Nadiah binti Puddin</h3>
-                <p>Deputy Finance Manager</p>
-                <a href="../personal/finance2.html" class="btn">View Achievements</a>
+                <span class="role-badge">Deputy Finance</span>
+                <a href="../personal/finance2.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
-                
 
-            <div class="team-card">
+            <!-- Member 6: Marketing Manager -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Marketing Manager">
                 <h3>Nur Aleeya Natasha Assrynie binti Nasip</h3>
-                <p>Marketing Manager</p>
-                <a href="../personal/marketing1.html" class="btn">View Achievements</a>
+                <span class="role-badge">Marketing Manager</span>
+                <a href="../personal/marketing1.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="team-card">
+            <!-- Member 7: Deputy Marketing -->
+            <div class="team-profile-card">
                 <img src="../assets/images/placeholder.jpg" alt="Deputy Marketing Manager">
                 <h3>Naslin binti Guntur</h3>
-                <p>Deputy Marketing Manager</p>
-                <a href="../personal/marketing2.html" class="btn">View Achievements</a>
+                <span class="role-badge">Deputy Marketing</span>
+                <a href="../personal/marketing2.html" class="view-btn">View Achievements <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <!-- You will copy and paste the .team-card block for the other 5 members -->
         </div>
+
     </main>
 
-    <!-- Notice the ../ for the script source -->
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <!-- Link to our JavaScript -->
     <script src="../js/script.js"></script>
-    <script>
-        // We pass '../' into the function so the navigation links work correctly!
-        loadNav('../'); 
-    </script>
 </body>
 </html>
