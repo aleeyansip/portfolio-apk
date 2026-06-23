@@ -1401,35 +1401,26 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 /* ==========================================
-   NAVIGATION LOGO STYLING
+   NAVIGATION LOGO STYLING (LETTERHEAD)
    ========================================== */
 .top-nav .logo {
     display: flex;
     align-items: center;
-    gap: 12px; /* Creates the perfect spacing between the image and the text */
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--matcha-green); /* Or whatever your existing text color is */
     text-decoration: none;
 }
 
 .nav-logo-img {
-    height: 35px; /* Keeps the logo small and contained */
-    width: auto;  /* Ensures the logo doesn't stretch or distort */
-    border-radius: 50%; /* Optional: Makes the logo circular if your image is square */
-    object-fit: cover;
+    height: 45px; /* Increased slightly for a horizontal logo */
+    width: auto;  
+    border-radius: 0; /* Removes the previous circle effect */
+    object-fit: contain; /* Ensures the whole wide logo fits perfectly */
 }
 
 /* ==========================================
    MOBILE RESPONSIVENESS FOR NAVIGATION
    ========================================== */
 @media (max-width: 768px) {
-    .top-nav .logo {
-        font-size: 1.1rem; /* Shrinks the text to prevent it from doubling/wrapping */
-        gap: 8px; /* Slightly reduces the space between the image and text */
-    }
-
     .nav-logo-img {
-        height: 28px; /* Scales the logo image down slightly to match the smaller text */
+        height: 35px; /* Scales the long logo down slightly for mobile screens */
     }
 }
