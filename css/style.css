@@ -1419,3 +1419,17 @@ h1, h2, h3, h4, h5, h6, .logo {
     border-radius: 50%; /* Optional: Makes the logo circular if your image is square */
     object-fit: cover;
 }
+
+/* ==========================================
+   MOBILE RESPONSIVENESS FOR NAVIGATION
+   ========================================== */
+@media (max-width: 768px) {
+    .top-nav .logo {
+        font-size: 1.1rem; /* Shrinks the text to prevent it from doubling/wrapping */
+        gap: 8px; /* Slightly reduces the space between the image and text */
+    }
+
+    .nav-logo-img {
+        height: 28px; /* Scales the logo image down slightly to match the smaller text */
+    }
+}
