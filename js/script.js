@@ -44,7 +44,7 @@ accordionHeaders.forEach(header => {
 // ==========================================
 // 3. TYPEWRITER ANIMATION LOGIC
 // ==========================================
-const textArray = ["Deliciousness", "Matcha", "Chocolate", "Excellence"];
+const textArray = ["Deliciousness", "Matcha", "Chocolate", "Excellence", "Cakes", "Desserts", "Sweetness", "Indulgence"];
 let textIndex = 0;
 let charIndex = 0;
 const typewriterElement = document.getElementById('typewriter');
@@ -90,43 +90,77 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeWriter, 1000); // Wait 1 second before starting
 });
 
-// ==========================================
-// 4. SECOND TYPEWRITER (HIGHLIGHTS NEWS)
-// ==========================================
-const newsArray = ["News", "Updates", "Events", "Achievements"];
-let newsIndex = 0;
-let newsCharIndex = 0;
-const newsElement = document.getElementById('news-typewriter');
-let isNewsDeleting = false;
 
-function newsTypeWriter() {
-    if (!newsElement) return;
 
-    const currentWord = newsArray[newsIndex];
+/* ==========================================
+   HIGHLIGHTS TYPEWRITER WITH DYNAMIC LINKS
+   ========================================== */
+
+// 1. The Data: Pairing the words with their specific page destinations
+// Notice that 'gallery' and 'contact' are in the main folder, so they don't use 'about/'
+const highlightData = [
+    { word: "Cakes", url: "about/products.html" },
+    { word: "Purpose", url: "about/vision.html" },
+    { word: "Members", url: "about/team.html" },
+    { word: "Updates", url: "about/marketing.html" },
+    { word: "Achievements", url: "about/achievements.html" },
+    { word: "Review", url: "about/reviews.html" },
+    { word: "Statement", url: "about/finance.html" },
+    { word: "Media", url: "gallery.html" }, 
+    { word: "Question", url: "contact.html" }
+];
+
+// 2. Tracking variables
+let hlIndex = 0;
+let hlCharIndex = 0;
+let hlIsDeleting = false;
+
+// 3. The main typing function
+function typeDynamicHighlights() {
+    const typeWriterElement = document.getElementById("news-typewriter");
+    const linkElement = document.getElementById("news-link");
+
+    // Safety check: If these elements don't exist on the current page, stop the function
+    if (!typeWriterElement || !linkElement) return;
+
+    const currentItem = highlightData[hlIndex];
     
-    if (isNewsDeleting) {
-        newsElement.textContent = currentWord.substring(0, newsCharIndex - 1);
-        newsCharIndex--;
+    // As soon as we start typing a new word, dynamically update the anchor link destination
+    if (!hlIsDeleting && hlCharIndex === 0) {
+        linkElement.href = currentItem.url;
+    }
+
+    // Handle typing and deleting letter by letter
+    if (hlIsDeleting) {
+        typeWriterElement.textContent = currentItem.word.substring(0, hlCharIndex - 1);
+        hlCharIndex--;
     } else {
-        newsElement.textContent = currentWord.substring(0, newsCharIndex + 1);
-        newsCharIndex++;
+        typeWriterElement.textContent = currentItem.word.substring(0, hlCharIndex + 1);
+        hlCharIndex++;
     }
 
-    let typingSpeed = 150;
-    if (isNewsDeleting) typingSpeed /= 2;
+    // Set dynamic speeds (typing is slower than deleting)
+    let typingSpeed = hlIsDeleting ? 50 : 100;
 
-    if (!isNewsDeleting && newsCharIndex === currentWord.length) {
-        typingSpeed = 2000;
-        isNewsDeleting = true;
-    } else if (isNewsDeleting && newsCharIndex === 0) {
-        isNewsDeleting = false;
-        newsIndex = (newsIndex + 1) % newsArray.length;
-        typingSpeed = 500;
+    // Control pauses at the end of words or before starting a new word
+    if (!hlIsDeleting && hlCharIndex === currentItem.word.length) {
+        typingSpeed = 2000; // Pause for 2 seconds so the user has time to click
+        hlIsDeleting = true;
+    } else if (hlIsDeleting && hlCharIndex === 0) {
+        hlIsDeleting = false;
+        hlIndex++;
+        
+        // Loop back to the first word when reaching the end of the list
+        if (hlIndex >= highlightData.length) {
+            hlIndex = 0; 
+        }
+        typingSpeed = 500; // Brief pause before typing the next word
     }
 
-    setTimeout(newsTypeWriter, typingSpeed);
+    setTimeout(typeDynamicHighlights, typingSpeed);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(newsTypeWriter, 1500); // Starts slightly after the first typewriter
+// 4. Trigger the function once the HTML document has fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    typeDynamicHighlights();
 });
