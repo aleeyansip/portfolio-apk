@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Sedap Cravings Pastry Chef</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Gallery CSS for Responsive Grid Layout -->
+    <style>
+        .gallery-container {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+        .gallery-section h2 {
+            font-size: 2rem;
+            color: var(--ums-dark, #1f2937); /* Fallback color if variable is missing */
+            border-bottom: 3px solid var(--matcha-green, #84a98c);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .photo-grid {
+            display: grid;
+            /* This automatically creates responsive columns that are at least 250px wide */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .photo-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Ensures images fill the square without stretching */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .photo-grid img:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Special class to display the single logo properly */
+        .logo-display {
+            display: block;
+            max-width: 400px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .logo-display:hover {
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         1. NAVIGATION BAR
+         ========================================== -->
+    <nav class="top-nav">
+        <div class="logo">
+            <img src="assets/images/logo-letterhead.png" alt="Sedap Cravings Pastry Chef" class="nav-logo-img">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         2. SLIDE-OUT SIDEBAR
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            
+            <li class="accordion-item">
+                <div class="accordion-header">About Us <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/vision.html">Vision, Mission & Objectives</a></li>
+                    <li><a href="about/team.html">Our Team</a></li>
+                    <li><a href="about/marketing.html">Marketing Channels</a></li>
+                    <li><a href="about/achievements.html">Achievements</a></li>
+                    <li><a href="about/reviews.html">Customer Review</a></li>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/problem-solving.html">Problem Solving</a></li>
+                    <li><a href="about/reflection.html">Reflection</a></li>
+                </ul>
+            </li>
+
+            <li class="accordion-item">
+                <div class="accordion-header">Personal Achievement <i class="fas fa-plus icon-toggle"></i></div>
+                <ul class="accordion-content">
+                    <li><a href="../personal/director.html">Executive Director</a></li>
+                    <li><a href="../personal/secretary1.html">Head of Secretary</a></li>
+                    <li><a href="../personal/secretary2.html">Deputy Head of Secretary</a></li>
+                    <li><a href="../personal/finance1.html">Finance Manager</a></li>
+                    <li><a href="../personal/finance2.html">Finance Assistant</a></li>
+                    <li><a href="../personal/marketing1.html">Marketing Manager</a></li>
+                    <li><a href="../personal/marketing2.html">Deputy of Marketing Manager</a></li>
+                </ul>
+            </li>
+
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- ==========================================
+         3. PAGE HEADER
+         ========================================== -->
+    <header class="page-header" style="background-color: var(--ums-dark, #111827); color: white; padding: 120px 20px 60px; text-align: center;">
+        <h1 style="color: var(--matcha-green, #84a98c); font-size: 2.5rem; margin-bottom: 15px;">Photo Gallery</h1>
+        <p style="font-size: 1.1rem; color: #d1d5db;">A visual journey of Sedap Cravings Pastry Chef</p>
+    </header>
+
+    <!-- ==========================================
+         4. MAIN GALLERY CONTENT
+         ========================================== -->
+    <main class="gallery-container">
+
+        <!-- CATEGORY 1: LOGO (1 Pic) -->
+        <section class="gallery-section">
+            <h2>Our Official Brand</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 30px;">The official logo representing Sedap Cravings Pastry Chef.</p>
+            <img src="assets/images/gal-82.jpg" alt="Sedap Cravings Logo" class="logo-display">
+        </section>
+
+        <!-- CATEGORY 2: CAKES (9 Pics) -->
+        <section class="gallery-section">
+            <h2>Our Premium Products</h2>
+            <p style="color: #6b7280; margin-bottom: 20px;">Freshly baked Matcha Moist Cakes and Chocolate Moist Cakes.</p>
+            <div class="photo-grid">
+                <!-- Add exactly 9 image tags here for your cakes -->
+                <img src="assets/images/gal-12.jpg" alt="Chocolate Moist Cake">
+                <img src="assets/images/gal-13.jpg" alt="Chocolate Moist Cake">
+                <img src="assets/images/gal-14.jpg" alt="Matcha Moist Cake View">
+                <img src="assets/images/gal-15.jpg" alt="Matcha Moist Cake">
+                <img src="assets/images/gal-16.jpg" alt="Chocolate and Matcha Moist Cake">
+                <img src="assets/images/gal-18.jpg" alt="Delicious Matcha Moist Cake View">
+                <img src="assets/images/gal-21.jpg" alt="Chocolate Moist Cake">
+                <img src="assets/images/gal-22.jpg" alt="Chocolate Moist Cake">
+                <!-- Duplicate 6 more times -->
+            </div>
+        </section>
+
+        <!-- CATEGORY 3: POSTERS (12 Pics) -->
+        <section class="gallery-section">
+            <h2>Promotional Posters</h2>
+            <p style="color: #6b7280; margin-bottom: 20px;">The marketing materials that helped us achieve our sales targets.</p>
+            <div class="photo-grid">
+                <!-- Add exactly 12 image tags here for your posters -->
+                <img src="assets/images/gal-19.jpg" alt="1st Promo Poster">
+                <img src="assets/images/gal-20.jpg" alt="Promo CMC Poster">
+                <img src="assets/images/gal-23.jpg" alt="new flavor poster">
+                <img src="assets/images/gal-24.jpg" alt="poster expo pjg menegak">
+                <img src="assets/images/gal-25.jpg" alt="get your cake poster">
+                <img src="assets/images/gal-26.jpg" alt="poster expo pjg melintang">
+                <img src="assets/images/gal-27.jpg" alt="location expo poster">
+                <img src="assets/images/gal-28.jpg" alt="location expo poster 2">
+                <img src="assets/images/gal-29.jpg" alt="socmed expo and qr poster">
+                <img src="assets/images/gal-30.jpg" alt="expo menu poster">
+                <img src="assets/images/gal-31.jpg" alt="time and date poster">
+                <img src="assets/images/gal-32.jpg" alt="expo day is today poster">
+                <!-- Duplicate 9 more times -->
+            </div>
+        </section>
+
+        <!-- CATEGORY 4: EXPO DAY & TEAM (10 Pics) -->
+        <section class="gallery-section">
+            <h2>Expo Day & Our Lecturer</h2>
+            <p style="color: #6b7280; margin-bottom: 20px;">Memories from Week 10 Expo Day, featuring our incredible team and supportive lecturer.</p>
+            <div class="photo-grid">
+                <!-- Add exactly 10 image tags here for your group/lecturer pics -->
+                <img src="assets/images/gal-1.jpg" alt="Expo Day Booth">
+                <img src="assets/images/gal-2.jpg" alt="Team with Lecturer">
+                <img src="assets/images/gal-3.jpg" alt="Group Photo">
+                <img src="assets/images/gal-83.jpg" alt="Expo Day Booth">
+                <img src="assets/images/gal-5.jpg" alt="Team with Lecturer">
+                <img src="assets/images/gal-6.jpg" alt="Group Photo">
+                <img src="assets/images/gal-7.jpg" alt="Expo Day Booth">
+                <img src="assets/images/gal-8.jpg" alt="Team with Lecturer">
+                <img src="assets/images/gal-84.jpg" alt="Group Photo">
+                <img src="assets/images/gal-85.jpg" alt="Expo Day Booth">
+                <!-- Duplicate 7 more times -->
+            </div>
+        </section>
+
+        <!-- CATEGORY 5: CUSTOMERS (44 Pics) -->
+        <section class="gallery-section">
+            <h2>Our Happy Customers</h2>
+            <p style="color: #6b7280; margin-bottom: 20px;">Thank you to all the amazing students and staff at UMS for supporting our business!</p>
+            <div class="photo-grid">
+                <!-- Add exactly 44 image tags here for your customer pics -->
+                <img src="assets/images/gal-36.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-37.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-38.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-39.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-40.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-41.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-42.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-43.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-44.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-45.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-46.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-47.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-48.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-49.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-50.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-51.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-52.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-53.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-54.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-55.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-56.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-57.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-58.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-59.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-60.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-61.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-62.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-63.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-64.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-65.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-66.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-67.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-68.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-69.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-70.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-71.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-72.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-73.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-74.jpg" alt="Customer at booth">
+                  <img src="assets/images/gal-75.jpg" alt="Customer enjoying cake">
+                <img src="assets/images/gal-76.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-77.jpg" alt="Customer at booth">
+                <img src="assets/images/gal-78.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-79.jpg" alt="Happy Customer">
+                <img src="assets/images/gal-80.jpg" alt="Happy Customer">
+                <!-- Duplicate 40 more times! -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         5. PROFESSIONAL FOOTER
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col mission-col">
+                <h3>Support Our Student Journey</h3>
+                <p>This business is a heartbeat of our <strong>APK project at UMS</strong>. Every order helps us learn, and every follow helps us grow.</p>
+                <p class="disclaimer"><em>*This website and business are purely for educational purposes.</em></p>
+                
+                <div class="social-buttons">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about/finance.html">Financial Statement</a></li>
+                    <li><a href="about/products.html">Our Products</a></li>
+                    <li><a href="about/team.html">Meet the Team</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Reach Us</h3>
+                <p><strong>Faculty of Social Science & Humanities,</strong><br>
+                   Jalan UMS, 88400 Kota Kinabalu,<br>
+                   Sabah, Malaysia.</p>
+                
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> sedapcravingspastrychefums@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <h2>Sedap Cravings</h2>
+                <p>Pastry Chef</p>
+            </div>
+            <p class="copyright">&copy; 2026 Sedap Cravings. Universiti Malaysia Sabah.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
