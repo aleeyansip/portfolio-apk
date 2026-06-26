@@ -1424,3 +1424,81 @@ h1, h2, h3, h4, h5, h6, .logo {
         height: 35px; /* Scales the long logo down slightly for mobile screens */
     }
 }
+
+/* ==========================================
+   BULLETPROOF MOBILE RESPONSIVENESS FIXES
+   ========================================== */
+
+/* 1. Universal Box Sizing: Stops padding from breaking screen width */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 2. Prevent horizontal scrolling on the entire webpage */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Universal Image Fix: Images will shrink to fit their container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 4. Fix the Team Carousel Images on index.html */
+.team-card img, 
+.carousel-item img {
+    width: 100%;
+    height: 300px; /* Adjust this number if you want them taller/shorter */
+    object-fit: cover; /* Ensures the face isn't stretched */
+    border-radius: 10px;
+}
+
+/* 5. Mobile-Specific Layout Adjustments (Phones & Small Tablets) */
+@media (max-width: 768px) {
+    
+    /* Stack the profile left/right sections vertically */
+    .personal-profile-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    /* Remove side margins/padding that push text off-screen */
+    .profile-right {
+        width: 100%;
+        padding: 15px 0; 
+    }
+
+    /* Stack GO e-Commerce and Action Shots vertically instead of side-by-side */
+    .action-shots-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .action-shots-gallery img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Force the 4-box financial stats into a single column */
+    .financial-stats-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Ensure long words or links don't break the screen boundary */
+    p, h1, h2, h3, li {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
